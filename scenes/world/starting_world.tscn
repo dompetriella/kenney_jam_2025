@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://bienm2jvdt34q"]
+[gd_scene load_steps=4 format=4 uid="uid://bienm2jvdt34q"]
 
 [ext_resource type="Texture2D" uid="uid://dtkbksoablcpr" path="res://assets/sprites/colored.png" id="1_v3v20"]
-[ext_resource type="PackedScene" uid="uid://d1aq7ya3d2yrw" path="res://scenes/actors/player/player.tscn" id="2_yjy3y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yjy3y"]
 texture = ExtResource("1_v3v20")
@@ -1241,7 +1240,3 @@ tile_set = SubResource("TileSet_rnchb")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(8, -9)
-
-[node name="CharacterBody2D" parent="SpawnPoint" instance=ExtResource("2_yjy3y")]
-position = Vector2(0, 1)
-move_speed = 100.0

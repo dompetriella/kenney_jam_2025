@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbbl764uivff2"]
+[gd_scene load_steps=11 format=3 uid="uid://dbbl764uivff2"]
 
 [ext_resource type="Script" uid="uid://dhn6w7armvs76" path="res://scripts/base/scaffold.gd" id="1_pyidc"]
 [ext_resource type="Script" uid="uid://bkvvhf2ncfnhx" path="res://scripts/base/audio.gd" id="1_vvh5c"]
+[ext_resource type="PackedScene" uid="uid://d1aq7ya3d2yrw" path="res://scenes/actors/player/player.tscn" id="2_28aoi"]
 [ext_resource type="PackedScene" uid="uid://l6xve34c75ym" path="res://scenes/menus/title_menu/title_menu.tscn" id="2_pyidc"]
 
 [sub_resource type="Animation" id="Animation_28aoi"]
@@ -123,6 +124,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_jnlp7")
 }
 autoplay = "default"
+
+[node name="Player" parent="." instance=ExtResource("2_28aoi")]
+visible = false
 
 [node name="Scaffold" type="Node" parent="."]
 script = ExtResource("1_pyidc")
