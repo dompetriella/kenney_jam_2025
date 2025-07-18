@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3bu3bdvxw758"]
+
+[ext_resource type="Script" uid="uid://cioajp4wp1w4k" path="res://scenes/objects/bumper/bumper.gd" id="1_05thg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkny8"]
+radius = 99.1262
+
+[sub_resource type="Gradient" id="Gradient_7ka8v"]
+colors = PackedColorArray(0.586933, 0.118562, 1, 1, 0.388235, 0.0705882, 0.776471, 0.0156863)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_05thg"]
+gradient = SubResource("Gradient_7ka8v")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.527523, 0.493119)
+fill_to = Vector2(0.853211, 0.178899)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_05thg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qkny8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = SubResource("GradientTexture2D_05thg")
+
+[node name="BumperNameLabel" type="Label" parent="Area2D"]
+unique_name_in_owner = true
+offset_left = -100.0
+offset_top = -106.0
+offset_right = 105.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Label"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
