@@ -80,8 +80,8 @@ shape = SubResource("CapsuleShape2D_oj104")
 unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8bj4u")
-animation = &"walk_up"
-frame_progress = 0.410535
+animation = &"walk_down"
+frame_progress = 0.11912
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
