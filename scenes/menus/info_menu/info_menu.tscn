@@ -1,15 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbp88s7ly7d5m"]
+[gd_scene load_steps=5 format=3 uid="uid://cbp88s7ly7d5m"]
 
 [ext_resource type="Texture2D" uid="uid://cxfjo726csrd1" path="res://themes/default_background.tres" id="1_dej7k"]
 [ext_resource type="Script" uid="uid://d32jsj6tcwys6" path="res://scenes/menus/info_menu/info_menu.gd" id="1_ltdji"]
 [ext_resource type="Theme" uid="uid://dudh4b5muoijx" path="res://themes/default_theme.tres" id="2_vtwa6"]
 [ext_resource type="PackedScene" uid="uid://d1aq7ya3d2yrw" path="res://scenes/actors/player/player.tscn" id="4_tjxmo"]
-[ext_resource type="AudioStream" uid="uid://bxqrdwnwe73v3" path="res://assets/audio/sfx/world_sfx.ogg" id="5_k5n7f"]
-[ext_resource type="PackedScene" uid="uid://c3bu3bdvxw758" path="res://scenes/objects/bumper/bumper.tscn" id="5_ompqs"]
-[ext_resource type="AudioStream" uid="uid://dfmdugeo8daw3" path="res://assets/audio/sfx/enemy_sfx.ogg" id="6_bcj7a"]
-[ext_resource type="AudioStream" uid="uid://xbc4rhh4pfp" path="res://assets/audio/sfx/player_sfx.ogg" id="7_hd1ax"]
-[ext_resource type="AudioStream" uid="uid://cjv26khofqb1o" path="res://assets/audio/sfx/interface_sfx.ogg" id="8_rsmkl"]
-[ext_resource type="AudioStream" uid="uid://b15bhxr4h3bkx" path="res://assets/audio/music/default_music.mp3" id="9_7ao7d"]
 
 [node name="InfoMenu" type="Control"]
 layout_mode = 3
@@ -53,39 +47,8 @@ layout_mode = 2
 theme = ExtResource("2_vtwa6")
 text = "Back to Title Screen"
 
-[node name="Bumpers" type="Node2D" parent="."]
-
-[node name="WorldBumper" parent="Bumpers" instance=ExtResource("5_ompqs")]
-position = Vector2(975, 516)
-label_text = "World SFX"
-audio_source = 2
-sound_effect = ExtResource("5_k5n7f")
-
-[node name="EnemyBumper" parent="Bumpers" instance=ExtResource("5_ompqs")]
-position = Vector2(175, 513)
-label_text = "Enemy SFX"
-audio_source = 1
-sound_effect = ExtResource("6_bcj7a")
-
-[node name="PlayerBumper" parent="Bumpers" instance=ExtResource("5_ompqs")]
-position = Vector2(709, 512)
-label_text = "Player SFX"
-sound_effect = ExtResource("7_hd1ax")
-
-[node name="UIBumper" parent="Bumpers" instance=ExtResource("5_ompqs")]
-position = Vector2(445, 517)
-label_text = "UI SFX"
-audio_source = 3
-sound_effect = ExtResource("8_rsmkl")
-
-[node name="ToggleMusicBumper" parent="Bumpers" instance=ExtResource("5_ompqs")]
-position = Vector2(976, 145)
-label_text = "Toggle Music"
-audio_source = 4
-sound_effect = ExtResource("9_7ao7d")
-
 [node name="Player" parent="." instance=ExtResource("4_tjxmo")]
 position = Vector2(579, 299)
-move_speed = 500.0
+move_speed = 100.0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
