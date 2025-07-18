@@ -9,6 +9,9 @@ const WALK_DOWN_ANIMATION: String = 'walk_down';
 
 var is_traveling_up: bool = false;
 
+func _ready() -> void:
+	PlayerMessenger.change_player_global_position.connect(_on_change_player_position.bind());
+
 func _physics_process(delta: float) -> void:
 	var input_vector := Vector2.ZERO
 	
@@ -32,3 +35,6 @@ func _physics_process(delta: float) -> void:
 
 	else:
 		character_sprite_animation.play(WALK_DOWN_ANIMATION);
+
+func _on_change_player_position(new_position: Vector2):
+	self.global_position = new_position;

@@ -20,6 +20,7 @@ config/icon="res://assets/sprites/icon.svg"
 GameMessenger="*res://globals/messengers/game_messenger.gd"
 ScaffoldMessenger="*res://globals/messengers/scaffold_messenger.gd"
 AudioMessenger="*res://globals/messengers/audio_messenger.gd"
+PlayerMessenger="*res://globals/messengers/player_messenger.gd"
 
 [display]
 
