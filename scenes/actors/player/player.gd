@@ -2,9 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 const IDLE_DOWN_ANIMATION: String = 'idle_down';
-const IDLE_UP_ANIMATION: String = 'idle_up';
 const WALK_DOWN_ANIMATION: String = 'walk_down';
-const WALK_UP_ANIMATION: String = 'walk_up';
 
 @export var move_speed: float = 300.0
 @onready var character_sprite_animation: AnimatedSprite2D = %CharacterSpriteAnimation
@@ -30,12 +28,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if input_vector == Vector2.ZERO:
-		if (is_traveling_up):
-			character_sprite_animation.play(IDLE_UP_ANIMATION);
-		else:
-			character_sprite_animation.play(IDLE_DOWN_ANIMATION);
+		character_sprite_animation.play(IDLE_DOWN_ANIMATION);
+
 	else:
-		if (is_traveling_up):
-			character_sprite_animation.play(WALK_UP_ANIMATION);
-		else:
-			character_sprite_animation.play(WALK_DOWN_ANIMATION);
+		character_sprite_animation.play(WALK_DOWN_ANIMATION);
