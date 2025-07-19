@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://b5g3bx0l7qen" path="res://assets/sprites/actors/wizard_guy_down.png" id="3_yg5k4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oj104"]
-size = Vector2(10, 12)
+size = Vector2(10, 9)
 
 [sub_resource type="Gradient" id="Gradient_oj104"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+colors = PackedColorArray(1, 0.972289, 0.93405, 1, 1, 0.972549, 0.933333, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_mpktj"]
 gradient = SubResource("Gradient_oj104")
@@ -48,7 +48,7 @@ script = ExtResource("1_l17oj")
 move_speed = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(-1, 2.5)
 shape = SubResource("RectangleShape2D_oj104")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -61,7 +61,7 @@ unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8bj4u")
 animation = &"idle_down"
-frame_progress = 0.257801
+frame_progress = 0.598055
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
