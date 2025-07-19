@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://07yalu1a7pqg"]
 
-[ext_resource type="Script" uid="uid://dxwua6i4oobry" path="res://scenes/actors/dude/dude.gd" id="1_bkoiu"]
+[ext_resource type="Script" uid="uid://dkvkc74u67dvf" path="res://scenes/actors/dude/zap_dude.gd" id="1_bkoiu"]
 [ext_resource type="Texture2D" uid="uid://cs3lkxllg2tkf" path="res://assets/sprites/colored-transparent.png" id="2_nhw80"]
 [ext_resource type="Script" uid="uid://ch6lkmqogdd32" path="res://scenes/actors/dude/dude_sprite.gd" id="3_xv8fx"]
 
@@ -38,7 +38,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_u0fqh"]
 resource_name = "die"
-length = 0.4
+length = 0.001
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -47,10 +47,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [414, 415]
+"values": [414]
 }
 
 [sub_resource type="Animation" id="Animation_2bm87"]
@@ -103,6 +103,7 @@ scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_bkoiu")
+type = 1
 metadata/_custom_type_script = "uid://dxwua6i4oobry"
 
 [node name="DudeSprite" type="Sprite2D" parent="."]

@@ -8,6 +8,7 @@ class_name DudeNode
 @export var follow_distance := 30.0
 @export var crowd_radius := 30.0
 @export var separation_force := 100.0
+@export var type := DudeType.Dude.BLUE
 
 var other_dudes: Array[DudeNode]
 var navigation_agent: NavigationAgent2D
