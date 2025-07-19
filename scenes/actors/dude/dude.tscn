@@ -95,10 +95,9 @@ _data = {
 &"walk_right": SubResource("Animation_hruxy")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko5ns"]
-size = Vector2(14, 12)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70qd8"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Dude" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_70qd8")
 
@@ -116,6 +115,4 @@ libraries = {
 speed_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-physics_interpolation_mode = 2
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_ko5ns")
+shape = SubResource("RectangleShape2D_70qd8")

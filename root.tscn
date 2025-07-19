@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbbl764uivff2"]
+[gd_scene load_steps=13 format=3 uid="uid://dbbl764uivff2"]
 
 [ext_resource type="Script" uid="uid://te0iudue5tky" path="res://scripts/base/game.gd" id="1_jnlp7"]
 [ext_resource type="Script" uid="uid://dhn6w7armvs76" path="res://scripts/base/scaffold.gd" id="1_pyidc"]
 [ext_resource type="Script" uid="uid://bkvvhf2ncfnhx" path="res://scripts/base/audio.gd" id="1_vvh5c"]
 [ext_resource type="PackedScene" uid="uid://d1aq7ya3d2yrw" path="res://scenes/actors/player/player.tscn" id="2_28aoi"]
 [ext_resource type="PackedScene" uid="uid://l6xve34c75ym" path="res://scenes/menus/title_menu/title_menu.tscn" id="2_pyidc"]
+[ext_resource type="Script" uid="uid://befh5oe1ncn6" path="res://dude_spawn.gd" id="6_vyht1"]
 
 [sub_resource type="Animation" id="Animation_28aoi"]
 resource_name = "Fade"
@@ -133,6 +134,9 @@ script = ExtResource("1_pyidc")
 [node name="TitleMenu" parent="Scaffold" instance=ExtResource("2_pyidc")]
 
 [node name="Player" parent="." instance=ExtResource("2_28aoi")]
+
+[node name="DudeSpawn" type="Node" parent="Player"]
+script = ExtResource("6_vyht1")
 
 [node name="MenuCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
