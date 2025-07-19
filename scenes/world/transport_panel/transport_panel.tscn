@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dty4bfx8uwtnj"]
+
+[ext_resource type="Script" uid="uid://ob7c8s46gvr5" path="res://scenes/world/transport_panel/transport_panel.gd" id="1_70l6f"]
+
+[node name="TransportPanel" type="Area2D"]
+script = ExtResource("1_70l6f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

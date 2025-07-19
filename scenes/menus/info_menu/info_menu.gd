@@ -11,7 +11,7 @@ func _on_play_button_pressed() -> void:
 	var children: Array[Node] = starting_world_instance.get_children();
 	var character_spawn: Vector2;
 	for child in children:
-		if (child is Marker2D):
+		if (child is Marker2D && child.name == "SpawnPoint"):
 			character_spawn = child.global_position;
 	if (character_spawn != null):
 		Locator.get_scaffold().scaffold_new_node_tree(STARTING_WORLD.instantiate(), func(): PlayerMessenger.spawn_player.emit(character_spawn));

@@ -61,7 +61,7 @@ unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8bj4u")
 animation = &"idle_down"
-frame_progress = 0.93144
+frame_progress = 0.598055
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
