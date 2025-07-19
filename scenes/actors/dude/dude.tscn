@@ -1,0 +1,118 @@
+[gd_scene load_steps=11 format=3 uid="uid://parh4vv7b2i5"]
+
+[ext_resource type="Script" uid="uid://dxwua6i4oobry" path="res://scenes/actors/dude/dude.gd" id="1_70qd8"]
+[ext_resource type="Texture2D" uid="uid://cs3lkxllg2tkf" path="res://assets/sprites/colored-transparent.png" id="2_q1l8p"]
+[ext_resource type="Script" uid="uid://ch6lkmqogdd32" path="res://scenes/actors/dude/dude_sprite.gd" id="3_wna5e"]
+
+[sub_resource type="Animation" id="Animation_ko5ns"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [361]
+}
+
+[sub_resource type="Animation" id="Animation_rgjkq"]
+resource_name = "dead"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [366]
+}
+
+[sub_resource type="Animation" id="Animation_u0fqh"]
+resource_name = "die"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [365, 366]
+}
+
+[sub_resource type="Animation" id="Animation_2bm87"]
+resource_name = "idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [361]
+}
+
+[sub_resource type="Animation" id="Animation_hruxy"]
+resource_name = "walk_right"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [362, 363, 362, 363, 362, 363]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2v8i"]
+_data = {
+&"RESET": SubResource("Animation_ko5ns"),
+&"dead": SubResource("Animation_rgjkq"),
+&"die": SubResource("Animation_u0fqh"),
+&"idle": SubResource("Animation_2bm87"),
+&"walk_right": SubResource("Animation_hruxy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70qd8"]
+
+[node name="Dude" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_70qd8")
+
+[node name="DudeSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_q1l8p")
+hframes = 49
+vframes = 22
+frame = 361
+script = ExtResource("3_wna5e")
+
+[node name="DudeAnimation" type="AnimationPlayer" parent="DudeSprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_h2v8i")
+}
+speed_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_70qd8")
