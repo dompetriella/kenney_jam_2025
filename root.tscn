@@ -142,6 +142,7 @@ script = ExtResource("1_pyidc")
 [node name="TitleMenu" parent="Scaffold" instance=ExtResource("2_pyidc")]
 
 [node name="Player" parent="." instance=ExtResource("2_28aoi")]
+z_index = 99
 
 [node name="DudeManager" type="Node" parent="Player" groups=["dudes"]]
 script = ExtResource("6_vyht1")

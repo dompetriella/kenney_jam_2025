@@ -46,6 +46,31 @@ func _ready():
 		sprite.name = "DudeSprite"
 		# You'll need to set a texture here or create a simple colored rectangle
 		add_child(sprite)
+		
+	var timer: Timer = Timer.new();
+	timer.autostart = true;
+	timer.one_shot = false;
+	timer.wait_time = 5.0;
+	timer.timeout.connect(_on_timer_timeout);
+	self.add_child(timer);
+	
+func _on_timer_timeout():
+	
+	var chance_to_spawn: float = 0.25;
+	var spin_the_wheel: float = randf();
+	if (spin_the_wheel < chance_to_spawn):
+		var dude_manager: DudeManager = self.get_parent();
+		var packed_dude: PackedScene;
+		match (self.type):
+			DudeType.Dude.BLUE:
+				packed_dude = load('uid://parh4vv7b2i5');
+			DudeType.Dude.GREEN:
+				packed_dude = load('uid://wde1i2q2msdb');
+			DudeType.Dude.YELLOW:
+				packed_dude = load('uid://07yalu1a7pqg');
+				
+		if (packed_dude != null):	
+			dude_manager.add_dudes(packed_dude, 1, self.target);
 	
 func setup(followers_array: Array[DudeNode]):
 	other_dudes = followers_array
