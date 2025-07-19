@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://parh4vv7b2i5"]
+[gd_scene load_steps=11 format=3 uid="uid://07yalu1a7pqg"]
 
-[ext_resource type="Script" uid="uid://dkvkc74u67dvf" path="res://scenes/actors/dude/zap_dude.gd" id="1_70qd8"]
-[ext_resource type="Texture2D" uid="uid://cs3lkxllg2tkf" path="res://assets/sprites/colored-transparent.png" id="2_q1l8p"]
-[ext_resource type="Script" uid="uid://ch6lkmqogdd32" path="res://scenes/actors/dude/dude_sprite.gd" id="3_wna5e"]
+[ext_resource type="Script" uid="uid://dkvkc74u67dvf" path="res://scenes/actors/dude/zap_dude.gd" id="1_bkoiu"]
+[ext_resource type="Texture2D" uid="uid://cs3lkxllg2tkf" path="res://assets/sprites/colored-transparent.png" id="2_nhw80"]
+[ext_resource type="Script" uid="uid://ch6lkmqogdd32" path="res://scenes/actors/dude/dude_sprite.gd" id="3_xv8fx"]
 
 [sub_resource type="Animation" id="Animation_ko5ns"]
 length = 0.001
@@ -16,7 +16,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [361]
+"values": [410]
 }
 
 [sub_resource type="Animation" id="Animation_rgjkq"]
@@ -33,7 +33,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [366]
+"values": [415]
 }
 
 [sub_resource type="Animation" id="Animation_u0fqh"]
@@ -50,7 +50,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [365]
+"values": [414]
 }
 
 [sub_resource type="Animation" id="Animation_2bm87"]
@@ -66,7 +66,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [361]
+"values": [410]
 }
 
 [sub_resource type="Animation" id="Animation_hruxy"]
@@ -83,7 +83,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [362, 363, 362, 363, 362, 363]
+"values": [411, 412, 411, 412, 411, 412]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h2v8i"]
@@ -95,21 +95,24 @@ _data = {
 &"walk_right": SubResource("Animation_hruxy")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_70qd8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5otbj"]
 size = Vector2(10, 9)
 
-[node name="Dude" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.498)
+[node name="ZapDude" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_70qd8")
+script = ExtResource("1_bkoiu")
+type = 1
+metadata/_custom_type_script = "uid://dxwua6i4oobry"
 
 [node name="DudeSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_q1l8p")
+texture = ExtResource("2_nhw80")
 hframes = 49
 vframes = 22
-frame = 361
-script = ExtResource("3_wna5e")
+frame = 410
+region_rect = Rect2(0, 0, 16, 16)
+script = ExtResource("3_xv8fx")
 
 [node name="DudeAnimation" type="AnimationPlayer" parent="DudeSprite"]
 libraries = {
@@ -118,5 +121,4 @@ libraries = {
 speed_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_70qd8")
+shape = SubResource("RectangleShape2D_5otbj")

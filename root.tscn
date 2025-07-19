@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbbl764uivff2"]
+[gd_scene load_steps=17 format=3 uid="uid://dbbl764uivff2"]
 
 [ext_resource type="Script" uid="uid://te0iudue5tky" path="res://scripts/base/game.gd" id="1_jnlp7"]
 [ext_resource type="Script" uid="uid://dhn6w7armvs76" path="res://scripts/base/scaffold.gd" id="1_pyidc"]
 [ext_resource type="Script" uid="uid://bkvvhf2ncfnhx" path="res://scripts/base/audio.gd" id="1_vvh5c"]
 [ext_resource type="PackedScene" uid="uid://d1aq7ya3d2yrw" path="res://scenes/actors/player/player.tscn" id="2_28aoi"]
 [ext_resource type="PackedScene" uid="uid://l6xve34c75ym" path="res://scenes/menus/title_menu/title_menu.tscn" id="2_pyidc"]
-[ext_resource type="Script" uid="uid://befh5oe1ncn6" path="res://dude_spawn.gd" id="6_vyht1"]
+[ext_resource type="PackedScene" uid="uid://parh4vv7b2i5" path="res://scenes/actors/dude/dude.tscn" id="6_l8v81"]
+[ext_resource type="Script" uid="uid://befh5oe1ncn6" path="res://scenes/actors/dude/dude_manager.gd" id="6_vyht1"]
+[ext_resource type="PackedScene" uid="uid://07yalu1a7pqg" path="res://scenes/actors/dude/zap_dude.tscn" id="8_bf3um"]
+[ext_resource type="PackedScene" uid="uid://wde1i2q2msdb" path="res://scenes/actors/dude/green_dude.tscn" id="9_huihk"]
 
 [sub_resource type="Animation" id="Animation_28aoi"]
 resource_name = "Fade"
@@ -81,6 +84,11 @@ _data = {
 &"fade_out": SubResource("Animation_jnlp7")
 }
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_l8v81"]
+vertices = PackedVector2Array(1142, 638, 10.9688, 638, 9.03125, 10.9922, 1142, 10)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 1, 1152, 0, 1152, 648, 1, 648)])
+
 [node name="Game" type="Node"]
 script = ExtResource("1_jnlp7")
 
@@ -135,9 +143,15 @@ script = ExtResource("1_pyidc")
 
 [node name="Player" parent="." instance=ExtResource("2_28aoi")]
 
-[node name="DudeSpawn" type="Node" parent="Player"]
+[node name="DudeManager" type="Node" parent="Player" groups=["dudes"]]
 script = ExtResource("6_vyht1")
+dude_scene = ExtResource("6_l8v81")
+zap_dude_scene = ExtResource("8_bf3um")
+green_dude_scene = ExtResource("9_huihk")
 
 [node name="MenuCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(577, 323)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_l8v81")
