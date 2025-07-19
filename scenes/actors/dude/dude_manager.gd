@@ -29,6 +29,8 @@ func _ready():
 	for dude in dudes:
 		dude.setup(dudes)
 		
+	GameMessenger.dude_amount_changed.emit(self.dudes)
+		
 func add_dudes(scene: PackedScene, amount: int, player: Player) -> void:
 	for i in range(amount):
 		var dude := scene.instantiate() as DudeNode
@@ -37,6 +39,7 @@ func add_dudes(scene: PackedScene, amount: int, player: Player) -> void:
 		dude.target = player
 		dudes.append(dude)
 		add_child(dude)
+		GameMessenger.dude_amount_changed.emit(self.dudes)
 		
 		# Position dude near player initially
 		var angle = (i * TAU) / num_dudes
