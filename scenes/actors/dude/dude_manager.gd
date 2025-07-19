@@ -47,6 +47,20 @@ func add_dudes(scene: PackedScene, amount: int, player: Player) -> void:
 		var offset = Vector2(cos(angle), sin(angle)) * 10
 		dude.global_position = player.global_position + offset
 
+func yeet(target: Vector2) -> void:
+	if dudes.size() > 0:
+		var dude = dudes[0]
+		dude.yeet(target)
+		match dude.type:
+			DudeType.Dude.BLUE:
+				blue_dudes -= 1
+			DudeType.Dude.YELLOW:
+				zap_dudes -= 1
+			DudeType.Dude.GREEN:
+				green_dudes -= 1
+				
+		dudes.erase(dude)
+
 func _on_spawn(spawn_position: Vector2i):
 	await get_tree().process_frame
 	for i in dudes.size():

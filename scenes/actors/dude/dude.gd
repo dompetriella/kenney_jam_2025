@@ -16,7 +16,9 @@ var navigation_agent: NavigationAgent2D
 enum State {
 	FOLLOWING,
 	CROWDING,
-	IDLE
+	IDLE,
+	YEET,
+	DEAD
 }
 
 var current_state := State.IDLE
@@ -49,7 +51,7 @@ func setup(followers_array: Array[DudeNode]):
 	other_dudes = followers_array
 
 func _physics_process(delta: float) -> void:
-	if not target:
+	if not target || current_state == State.DEAD:
 		return
 		
 	update_state()
@@ -61,6 +63,8 @@ func _physics_process(delta: float) -> void:
 			crowd_around_player()
 		State.IDLE:
 			idle_behavior()
+		State.YEET:
+			yeet(target_position)
 			
 	apply_separation()
 	
@@ -74,6 +78,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func update_state():
+	if current_state == State.DEAD:
+		pass
+	
 	var distance_to_player := global_position.distance_to(target.global_position)
 	var player_moving = target.velocity.length() > 10.0
 	
@@ -92,6 +99,12 @@ func follow_player():
 	
 	target_position = target.global_position + offset
 	navigation_agent.target_position = target_position
+
+func yeet(destination: Vector2):
+	target_position = destination
+	current_state = State.YEET
+	if position == target_position:
+		current_state = State.DEAD
 
 func crowd_around_player():
 	var angle = randf_range(0, 0.5) * TAU
@@ -148,7 +161,10 @@ func _process(_delta: float) -> void:
 			$DudeSprite.flip_h = true
 		else:
 			animation.play("idle")
-			
+	elif current_state == State.YEET:
+		animation.play("die")
+	elif current_state == State.DEAD:
+		animation.play("dead")
 	else:
 		animation.play("idle")
 	#pass
