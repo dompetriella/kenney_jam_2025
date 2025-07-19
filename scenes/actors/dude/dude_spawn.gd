@@ -2,6 +2,8 @@
 extends Node
 
 @export var dude_scene: PackedScene
+@export var zap_dude_scene: PackedScene
+
 var dudes: Array[DudeNode] = []
 
 func _ready():
@@ -14,7 +16,11 @@ func _ready():
 	var player = get_parent() as Player  # Get the Player node
 	
 	for i in range(num_dudes):
-		var dude = dude_scene.instantiate() as DudeNode
+		var dude: DudeNode
+		if i % 2 == 0:
+			dude = dude_scene.instantiate() as DudeNode
+		else:
+			dude = zap_dude_scene.instantiate() as DudeNode
 		#dude.collision_layer = 2
 		dude.name = "Dude" + str(i)
 		dude.add_to_group("dudes")
