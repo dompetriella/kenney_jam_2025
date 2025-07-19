@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbbl764uivff2"]
+[gd_scene load_steps=12 format=3 uid="uid://dbbl764uivff2"]
 
+[ext_resource type="Script" uid="uid://te0iudue5tky" path="res://scripts/base/game.gd" id="1_jnlp7"]
 [ext_resource type="Script" uid="uid://dhn6w7armvs76" path="res://scripts/base/scaffold.gd" id="1_pyidc"]
 [ext_resource type="Script" uid="uid://bkvvhf2ncfnhx" path="res://scripts/base/audio.gd" id="1_vvh5c"]
 [ext_resource type="PackedScene" uid="uid://d1aq7ya3d2yrw" path="res://scenes/actors/player/player.tscn" id="2_28aoi"]
@@ -79,7 +80,8 @@ _data = {
 &"fade_out": SubResource("Animation_jnlp7")
 }
 
-[node name="Root" type="Node"]
+[node name="Game" type="Node"]
+script = ExtResource("1_jnlp7")
 
 [node name="Audio" type="Node" parent="."]
 script = ExtResource("1_vvh5c")
@@ -125,10 +127,13 @@ libraries = {
 }
 autoplay = "default"
 
-[node name="Player" parent="." instance=ExtResource("2_28aoi")]
-visible = false
-
-[node name="Scaffold" type="Node" parent="."]
+[node name="Scaffold" type="Node" parent="." groups=["Scaffold"]]
 script = ExtResource("1_pyidc")
 
 [node name="TitleMenu" parent="Scaffold" instance=ExtResource("2_pyidc")]
+
+[node name="Player" parent="." instance=ExtResource("2_28aoi")]
+
+[node name="MenuCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(577, 323)
