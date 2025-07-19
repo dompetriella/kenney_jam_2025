@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://5rg3kuds4l0o"
+path="res://.godot/imported/garden_sign_west.dialogue-e474e1ede6f47c6466274fc57a973ebf.tres"
+
+[deps]
+
+source_file="res://dialogue/starting_area/garden_sign_west.dialogue"
+dest_files=["res://.godot/imported/garden_sign_west.dialogue-e474e1ede6f47c6466274fc57a973ebf.tres"]
+
+[params]
+
+defaults=true

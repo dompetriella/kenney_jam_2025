@@ -1,15 +1,26 @@
-[gd_scene load_steps=7 format=4 uid="uid://bienm2jvdt34q"]
+[gd_scene load_steps=14 format=4 uid="uid://bienm2jvdt34q"]
 
 [ext_resource type="TileSet" uid="uid://dacrp6jb4d73b" path="res://assets/tile_sets/floor_tileset.tres" id="1_8uxbe"]
 [ext_resource type="TileSet" uid="uid://dhivreryfa5uy" path="res://assets/tile_sets/interact_tileset.tres" id="2_yv8io"]
 [ext_resource type="PackedScene" uid="uid://dty4bfx8uwtnj" path="res://scenes/world/transport_panel/transport_panel.tscn" id="3_yv8io"]
 [ext_resource type="PackedScene" uid="uid://lsjde4du2csx" path="res://scenes/world/interact_area/interact_area_dialogue.tscn" id="4_gk8o1"]
+[ext_resource type="Resource" uid="uid://5rg3kuds4l0o" path="res://dialogue/starting_area/garden_sign_west.dialogue" id="5_7b5ml"]
+[ext_resource type="Resource" uid="uid://cuv2l03l6s2oo" path="res://dialogue/starting_area/goblin.dialogue" id="5_n7r6h"]
+[ext_resource type="Resource" uid="uid://c7v1lxeff8e1x" path="res://dialogue/starting_area/goblin_2.dialogue" id="6_xiy1x"]
+[ext_resource type="PackedScene" uid="uid://dwc4prn40h14j" path="res://scenes/objects/pickup_item/pickup_item.tscn" id="8_xiy1x"]
+[ext_resource type="Resource" uid="uid://3joxkyyr5kdi" path="res://resources/pickup_item/items/red_gem.tres" id="9_7ph4q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk8o1"]
 size = Vector2(16.375, 13.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b5ml"]
 size = Vector2(16, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ytvj"]
+size = Vector2(18, 19.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ph4q"]
+size = Vector2(26, 27)
 
 [node name="StartingWorld" type="Node2D"]
 
@@ -19,7 +30,7 @@ tile_map_data = PackedByteArray("AAAJAAcAAQABAAEAAAAJAAgAAQABAAEAAAAJAAkAAQABAAE
 tile_set = ExtResource("1_8uxbe")
 
 [node name="InteractLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAA0ABgAAAAZAAIAAAA3ABgAAAAZAAIAAAA+AB0AAAAKAA8AAAA+AB4AAAAKABAAAAA+AB8AAAAKABAAAAA/AB0AAAALAA8AAAA/AB4AAAALABAAAAA/AB8AAAADAAkAAABAAB0AAAALAA8AAABAAB8AAAALABAAAABBAB0AAAAMAA8AAABBAB4AAAAMABAAAABBAB8AAAALABAAAABAAB4AAAALABAAAAA3ABcAAAAhAAsAAABDAB8AAAAMAAYAAABEAB8AAAABAAkAAABFAB8AAAAMAAYAAAA=")
+tile_map_data = PackedByteArray("AAA0ABgAAAAZAAIAAAA3ABgAAAAZAAIAAAA+AB0AAAAKAA8AAAA+AB4AAAAKABAAAAA+AB8AAAAKABAAAAA/AB0AAAALAA8AAAA/AB4AAAALABAAAAA/AB8AAAADAAkAAABAAB0AAAALAA8AAABAAB8AAAALABAAAABBAB0AAAAMAA8AAABBAB4AAAAMABAAAABBAB8AAAALABAAAABAAB4AAAALABAAAABDAB8AAAAMAAYAAABEAB8AAAABAAkAAABFAB8AAAAMAAYAAAA=")
 tile_set = ExtResource("2_yv8io")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
@@ -35,14 +46,33 @@ shape = SubResource("RectangleShape2D_gk8o1")
 [node name="HouseExit" type="Marker2D" parent="."]
 position = Vector2(1016, 524)
 
-[node name="InteractArea" parent="." instance=ExtResource("4_gk8o1")]
+[node name="Interactables" type="Node" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+[node name="Goblin1Interact" parent="Interactables" instance=ExtResource("4_gk8o1")]
+dialogue = ExtResource("5_n7r6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Goblin1Interact"]
 position = Vector2(840, 395)
 shape = SubResource("RectangleShape2D_7b5ml")
 
-[node name="InteractArea2" parent="." instance=ExtResource("4_gk8o1")]
+[node name="Goblin2Interact" parent="Interactables" instance=ExtResource("4_gk8o1")]
+dialogue = ExtResource("6_xiy1x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Goblin2Interact"]
 position = Vector2(888, 395)
 shape = SubResource("RectangleShape2D_7b5ml")
+
+[node name="GardenSignInteract" parent="Interactables" instance=ExtResource("4_gk8o1")]
+dialogue = ExtResource("5_7b5ml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/GardenSignInteract"]
+position = Vector2(616, 586.438)
+shape = SubResource("RectangleShape2D_8ytvj")
+
+[node name="PickupItem" parent="Interactables" instance=ExtResource("8_xiy1x")]
+position = Vector2(864, 435)
+pickup_item_data = ExtResource("9_7ph4q")
+
+[node name="InteractArea" type="CollisionShape2D" parent="Interactables/PickupItem"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_7ph4q")
