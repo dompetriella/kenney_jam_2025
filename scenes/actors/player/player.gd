@@ -13,7 +13,6 @@ var is_traveling_up: bool = false;
 
 func _ready() -> void:
 	PlayerMessenger.spawn_player.connect(_on_spawn.bind());
-	PlayerMessenger.switch_to_player_camera.connect(func(): player_camera.make_current());
 
 func _physics_process(delta: float) -> void:
 	var input_vector := Vector2.ZERO
@@ -42,6 +41,7 @@ func _physics_process(delta: float) -> void:
 func _on_spawn(spawn_position: Vector2i):
 	self.visible = true;
 	self.global_position = spawn_position;
+	player_camera.make_current();
 
 func _on_change_player_position(new_position: Vector2):
 	self.global_position = new_position;

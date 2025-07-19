@@ -10,9 +10,10 @@ const transition_names := {
 
 func scaffold_new_node_tree(
 	new_node: Node,
+	data_to_load: Callable = Callable(),
 	transition_in: TransitionType.Transition = TransitionType.Transition.FADE_OUT,
 	transition_out: TransitionType.Transition = TransitionType.Transition.FADE_IN,
-data_to_load: Callable = Callable()
+
 ) -> void:
 	
 	if (transition_in != TransitionType.Transition.NONE):
