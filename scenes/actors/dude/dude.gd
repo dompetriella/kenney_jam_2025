@@ -7,7 +7,7 @@ class_name DudeNode
 @export var SPEED := 100.0
 @export var follow_distance := 30.0
 @export var crowd_radius := 30.0
-@export var separation_force := 100.0
+@export var separation_force := 20.0
 @export var type := DudeType.Dude.BLUE
 
 var other_dudes: Array[DudeNode]
@@ -112,7 +112,7 @@ func crowd_around_player():
 		
 func idle_behavior():
 	if randf() < 0.01:
-		var wander_distance = randf_range(10.0, 20.0)
+		var wander_distance = randf_range(10.0, 15.0)
 		var angle = randf_range(0, 0.5) * TAU
 		target_position = global_position + Vector2(cos(angle), sin(angle)) * wander_distance
 		navigation_agent.target_position = target_position

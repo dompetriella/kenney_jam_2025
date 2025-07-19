@@ -29,26 +29,6 @@ func _ready():
 	add_dudes(zap_dude_scene, zap_dudes, player)
 	add_dudes(green_dude_scene, zap_dudes, player)
 	
-	#for i in range(num_dudes):
-		#var dude: DudeNode
-		#if i % 2 == 0:
-			#dude = dude_scene.instantiate() as DudeNode
-		#else:
-			#dude = zap_dude_scene.instantiate() as DudeNode
-		#dude.name = "Dude" + str(i)
-		#dude.add_to_group("dudes")
-		#
-		## Set the target (player) before adding to scene
-		#dude.target = player
-		#
-		#dudes.append(dude)
-		#add_child(dude)
-		#
-		## Position dude near player initially
-		#var angle = (i * TAU) / num_dudes
-		#var offset = Vector2(cos(angle), sin(angle)) * 30
-		#dude.global_position = player.global_position + offset
-	
 	# Setup other_dudes array for each dude after all are created
 	for dude in dudes:
 		dude.setup(dudes)
@@ -64,10 +44,11 @@ func add_dudes(scene: PackedScene, amount: int, player: Player) -> void:
 		
 		# Position dude near player initially
 		var angle = (i * TAU) / num_dudes
-		var offset = Vector2(cos(angle), sin(angle)) * 30
+		var offset = Vector2(cos(angle), sin(angle)) * 10
 		dude.global_position = player.global_position + offset
 
 func _on_spawn(spawn_position: Vector2i):
+	await get_tree().process_frame
 	for i in dudes.size():
 		var angle = (i * TAU) / dudes.size()
 		var offset = Vector2(cos(angle), sin(angle)) * 10
