@@ -3,13 +3,13 @@
 [ext_resource type="TileSet" uid="uid://dacrp6jb4d73b" path="res://assets/tile_sets/floor_tileset.tres" id="1_8uxbe"]
 [ext_resource type="TileSet" uid="uid://dhivreryfa5uy" path="res://assets/tile_sets/interact_tileset.tres" id="2_yv8io"]
 [ext_resource type="PackedScene" uid="uid://dty4bfx8uwtnj" path="res://scenes/world/transport_panel/transport_panel.tscn" id="3_yv8io"]
-[ext_resource type="PackedScene" uid="uid://lsjde4du2csx" path="res://scenes/world/interact_area/interact_area.tscn" id="4_gk8o1"]
+[ext_resource type="PackedScene" uid="uid://lsjde4du2csx" path="res://scenes/world/interact_area/interact_area_dialogue.tscn" id="4_gk8o1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk8o1"]
 size = Vector2(16.375, 13.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b5ml"]
-size = Vector2(16, 27)
+size = Vector2(16, 23)
 
 [node name="StartingWorld" type="Node2D"]
 
@@ -36,15 +36,13 @@ shape = SubResource("RectangleShape2D_gk8o1")
 position = Vector2(1016, 524)
 
 [node name="InteractArea" parent="." instance=ExtResource("4_gk8o1")]
-interact_type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
-position = Vector2(840, 397.5)
+position = Vector2(840, 395)
 shape = SubResource("RectangleShape2D_7b5ml")
 
 [node name="InteractArea2" parent="." instance=ExtResource("4_gk8o1")]
-interact_type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2"]
-position = Vector2(888, 397)
+position = Vector2(888, 395)
 shape = SubResource("RectangleShape2D_7b5ml")

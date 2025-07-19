@@ -44,10 +44,14 @@ func _physics_process(delta: float) -> void:
 			character_sprite_animation.play(WALK_DOWN_ANIMATION);
 	
 	if (is_in_interactable_area):
-		print('In da area');
+		if Input.is_action_pressed("ui_select"):
+			print('Selected area')
 
 func set_is_in_interactable_area(is_in_area: bool):
 	is_in_interactable_area = is_in_area;
+
+func set_current_interactable(interactable: Variant):
+	current_interactable = interactable;
 
 func _on_spawn(spawn_position: Vector2i):
 	self.visible = true;

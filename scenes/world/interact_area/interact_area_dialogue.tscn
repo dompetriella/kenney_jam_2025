@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://lsjde4du2csx"]
+
+[ext_resource type="Script" uid="uid://fs67bjngh16c" path="res://scenes/world/interact_area/interact_area_dialogue.gd" id="1_grx4o"]
+
+[node name="InteractAreaDialogue" type="Area2D"]
+script = ExtResource("1_grx4o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
