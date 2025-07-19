@@ -12,11 +12,25 @@ const WALK_DOWN_ANIMATION: String = 'walk_down';
 var player_can_move: bool = true;
 var is_traveling_up: bool = false;
 var is_in_interactable_area: bool = false;
-var current_interactable: Variant = null;
+var current_dialogue: DialogueResource;
+var current_pickup_item: PickupItem;
+
+var inventory: Array[PickupItemData] = [];
 
 func _ready() -> void:
 	PlayerMessenger.spawn_player.connect(_on_spawn.bind());
 	character_sprite_animation.modulate = Color("#8E7DBE");
+
+func _unhandled_input(event: InputEvent) -> void:
+	if (is_in_interactable_area):
+		if (current_dialogue != null):
+			if Input.is_action_pressed("ui_select"):
+				DialogueManager.show_dialogue_balloon(current_dialogue);
+		elif (current_pickup_item != null):
+			if Input.is_action_pressed("ui_select"):
+				DialogueManager.show_dialogue_balloon(current_pickup_item.pickup_item_data. pickup_dialogue);
+				inventory.append(current_pickup_item.pickup_item_data);
+				current_pickup_item.remove_item_from_world();
 
 func _physics_process(delta: float) -> void:
 	var input_vector := Vector2.ZERO
@@ -42,17 +56,16 @@ func _physics_process(delta: float) -> void:
 
 		else:
 			character_sprite_animation.play(WALK_DOWN_ANIMATION);
-	
-	if (is_in_interactable_area):
-		if Input.is_action_pressed("ui_select"):
-			print('Selected area')
 
 func set_is_in_interactable_area(is_in_area: bool):
 	is_in_interactable_area = is_in_area;
 
-func set_current_interactable(interactable: Variant):
-	current_interactable = interactable;
+func set_current_interacting_dialogue(dialogue: DialogueResource):
+	current_dialogue = dialogue;
 
+func set_current_interacting_item(item: PickupItem):
+	current_pickup_item = item;
+	
 func _on_spawn(spawn_position: Vector2i):
 	self.visible = true;
 	self.global_position = spawn_position;
