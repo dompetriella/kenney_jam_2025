@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bpg663t0yoqbo"
+path="res://.godot/imported/boat.dialogue-116e9792a715d2f214a41d1c8949e704.tres"
+
+[deps]
+
+source_file="res://dialogue/secondary_location/boat.dialogue"
+dest_files=["res://.godot/imported/boat.dialogue-116e9792a715d2f214a41d1c8949e704.tres"]
+
+[params]
+
+defaults=true

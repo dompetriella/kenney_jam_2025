@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bj5awfrk1ymvo"
+path="res://.godot/imported/lake_sign.dialogue-6e5f218844344fe3e59ebf74d3ce539c.tres"
+
+[deps]
+
+source_file="res://dialogue/secondary_location/lake_sign.dialogue"
+dest_files=["res://.godot/imported/lake_sign.dialogue-6e5f218844344fe3e59ebf74d3ce539c.tres"]
+
+[params]
+
+defaults=true

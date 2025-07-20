@@ -1,0 +1,7 @@
+~ start
+Toilet: Take a drink?
+- Yes
+	Wizard: I don't know why I did that :(
+- No
+	Wizard: Steve forgot to flush again :s
+=> END

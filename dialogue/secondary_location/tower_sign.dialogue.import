@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b1x7t8b7rycc4"
+path="res://.godot/imported/tower_sign.dialogue-2f2686617880b9247f4eb0b88678b7a4.tres"
+
+[deps]
+
+source_file="res://dialogue/secondary_location/tower_sign.dialogue"
+dest_files=["res://.godot/imported/tower_sign.dialogue-2f2686617880b9247f4eb0b88678b7a4.tres"]
+
+[params]
+
+defaults=true
