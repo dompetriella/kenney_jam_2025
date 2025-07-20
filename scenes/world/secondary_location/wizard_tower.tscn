@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://bhbgno57ofej4" path="res://dialogue/secondary_location/wizard_tower/cauldron_denied.dialogue" id="7_leirj"]
 [ext_resource type="Resource" uid="uid://cww63w3fu8171" path="res://dialogue/secondary_location/wizard_tower/chest.dialogue" id="7_ourcl"]
 [ext_resource type="AudioStream" uid="uid://cq0dd4fengd31" path="res://assets/audio/sfx/bubble.ogg" id="8_obfy5"]
-[ext_resource type="Script" uid="uid://owqskjlab2h3" path="res://scenes/world/interact_area/interact_area_dialogue_item.gd" id="9_leirj"]
+[ext_resource type="Script" path="res://scenes/world/interact_area/interact_area_dialogue_item.gd" id="9_leirj"]
 [ext_resource type="AudioStream" uid="uid://b48r5oxotcubq" path="res://assets/audio/sfx/steve.ogg" id="10_obfy5"]
 [ext_resource type="Resource" uid="uid://yhi2n7tsdj7e" path="res://resources/pickup_item/items/potion.tres" id="12_18wjb"]
 

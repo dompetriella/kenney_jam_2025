@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dhivreryfa5uy" path="res://assets/tile_sets/interact_tileset.tres" id="2_pkuh6"]
 [ext_resource type="PackedScene" uid="uid://lsjde4du2csx" path="res://scenes/world/interact_area/interact_area_dialogue.tscn" id="3_ruv2n"]
 [ext_resource type="Resource" uid="uid://bj5awfrk1ymvo" path="res://dialogue/secondary_location/lake_sign.dialogue" id="4_opwuh"]
-[ext_resource type="Script" uid="uid://owqskjlab2h3" path="res://scenes/world/interact_area/interact_area_dialogue_item.gd" id="5_3xinv"]
+[ext_resource type="Script" path="res://scenes/world/interact_area/interact_area_dialogue_item.gd" id="5_3xinv"]
 [ext_resource type="Resource" uid="uid://bpg663t0yoqbo" path="res://dialogue/secondary_location/boat.dialogue" id="5_v8qse"]
 [ext_resource type="Script" uid="uid://db06k6sbqffea" path="res://resources/enemy/enemy_data.gd" id="6_h78a4"]
 [ext_resource type="Resource" uid="uid://b1x7t8b7rycc4" path="res://dialogue/secondary_location/tower_sign.dialogue" id="6_opwuh"]
