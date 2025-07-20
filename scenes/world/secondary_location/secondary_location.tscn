@@ -1,15 +1,16 @@
-[gd_scene load_steps=22 format=4 uid="uid://bmn6mpia0xg56"]
+[gd_scene load_steps=23 format=4 uid="uid://bmn6mpia0xg56"]
 
 [ext_resource type="TileSet" uid="uid://dacrp6jb4d73b" path="res://assets/tile_sets/floor_tileset.tres" id="1_1an4f"]
 [ext_resource type="TileSet" uid="uid://dhivreryfa5uy" path="res://assets/tile_sets/interact_tileset.tres" id="2_pkuh6"]
 [ext_resource type="PackedScene" uid="uid://lsjde4du2csx" path="res://scenes/world/interact_area/interact_area_dialogue.tscn" id="3_ruv2n"]
 [ext_resource type="Resource" uid="uid://bj5awfrk1ymvo" path="res://dialogue/secondary_location/lake_sign.dialogue" id="4_opwuh"]
+[ext_resource type="Script" uid="uid://owqskjlab2h3" path="res://scenes/world/interact_area/interact_area_dialogue_item.gd" id="5_3xinv"]
 [ext_resource type="Resource" uid="uid://bpg663t0yoqbo" path="res://dialogue/secondary_location/boat.dialogue" id="5_v8qse"]
-[ext_resource type="Resource" uid="uid://dhc486026ysl5" path="res://resources/enemy/enemies/eel.tres" id="6_dbbun"]
 [ext_resource type="Script" uid="uid://db06k6sbqffea" path="res://resources/enemy/enemy_data.gd" id="6_h78a4"]
 [ext_resource type="Resource" uid="uid://b1x7t8b7rycc4" path="res://dialogue/secondary_location/tower_sign.dialogue" id="6_opwuh"]
 [ext_resource type="AudioStream" uid="uid://bi0vo62pub5vt" path="res://assets/audio/sfx/water-splash.mp3" id="7_5upha"]
 [ext_resource type="Resource" uid="uid://biox6wlq8mpxi" path="res://dialogue/secondary_location/toilet.dialogue" id="7_opwuh"]
+[ext_resource type="Resource" uid="uid://cwdie3lhmh244" path="res://resources/pickup_item/items/yellow_gem.tres" id="8_qqq6r"]
 [ext_resource type="PackedScene" uid="uid://dty4bfx8uwtnj" path="res://scenes/world/transport_panel/transport_panel.tscn" id="8_r14mr"]
 [ext_resource type="Resource" uid="uid://dsbbt6ny15ekg" path="res://dialogue/secondary_location/ghost.dialogue" id="8_ruv2n"]
 [ext_resource type="Resource" uid="uid://btk8fciybq513" path="res://resources/enemy/enemies/ghost.tres" id="12_w3xnp"]
@@ -69,9 +70,10 @@ position = Vector2(264, 349.5)
 shape = SubResource("RectangleShape2D_56ebk")
 
 [node name="BoatInteract2" parent="Interactables" instance=ExtResource("3_ruv2n")]
+script = ExtResource("5_3xinv")
 dialogue = ExtResource("5_v8qse")
-enemy_data = ExtResource("6_dbbun")
 sfx = ExtResource("7_5upha")
+item = ExtResource("8_qqq6r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/BoatInteract2"]
 position = Vector2(277, 393)

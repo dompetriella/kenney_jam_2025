@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PickupItemData" load_steps=2 format=3 uid="uid://yhi2n7tsdj7e"]
+
+[ext_resource type="Script" uid="uid://b6lgu1jomk88v" path="res://resources/pickup_item/pickup_item_data.gd" id="3_78nmq"]
+
+[resource]
+script = ExtResource("3_78nmq")
+item_name = "Dude Potion"
+metadata/_custom_type_script = "uid://b6lgu1jomk88v"

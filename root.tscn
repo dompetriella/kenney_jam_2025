@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dhn6w7armvs76" path="res://scripts/base/scaffold.gd" id="1_pyidc"]
 [ext_resource type="Script" uid="uid://bkvvhf2ncfnhx" path="res://scripts/base/audio.gd" id="1_vvh5c"]
 [ext_resource type="PackedScene" uid="uid://d1aq7ya3d2yrw" path="res://scenes/actors/player/player.tscn" id="2_28aoi"]
-[ext_resource type="Script" path="res://scripts/base/ui.gd" id="2_eji0w"]
+[ext_resource type="Script" uid="uid://c8t8bucjqmnvs" path="res://scripts/base/ui.gd" id="2_eji0w"]
 [ext_resource type="PackedScene" uid="uid://l6xve34c75ym" path="res://scenes/menus/title_menu/title_menu.tscn" id="2_pyidc"]
 [ext_resource type="Texture2D" uid="uid://c1qkfblqr71m3" path="res://assets/sprites/actors/dudes/blue_dude.png" id="2_qw60f"]
 [ext_resource type="Texture2D" uid="uid://k1q2kl0cuomy" path="res://assets/sprites/actors/dudes/green_dude.png" id="3_eji0w"]

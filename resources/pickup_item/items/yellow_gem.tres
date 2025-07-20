@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PickupItemData" load_steps=3 format=3 uid="uid://cwdie3lhmh244"]
+
+[ext_resource type="Texture2D" uid="uid://da6x5e3hmqeuv" path="res://assets/sprites/items/red_gem.png" id="1_vucgy"]
+[ext_resource type="Script" uid="uid://b6lgu1jomk88v" path="res://resources/pickup_item/pickup_item_data.gd" id="3_dgi8l"]
+
+[resource]
+script = ExtResource("3_dgi8l")
+item_name = "Yellow Gem"
+item_texture = ExtResource("1_vucgy")
+metadata/_custom_type_script = "uid://b6lgu1jomk88v"

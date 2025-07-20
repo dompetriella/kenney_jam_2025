@@ -18,6 +18,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if (body is Player):
 		var player = Locator.get_player()
+		print(player.inventory.size())
 		
 		player.set_is_in_interactable_area(true);
 		if player.inventory.size() > 3:
