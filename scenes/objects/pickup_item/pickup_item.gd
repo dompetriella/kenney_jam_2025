@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if (body is Player):
-		print(pickup_item_data.item_name);
+		print("Entering: " + pickup_item_data.item_name);
 		Locator.get_player().set_is_in_interactable_area(true);
 		Locator.get_player().set_current_interacting_item(self);
 

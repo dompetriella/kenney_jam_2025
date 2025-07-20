@@ -68,6 +68,8 @@ func use_dude(cost: int) -> void:
 			sacrifice.queue_free()
 		
 		dudes_lost += cost
+		
+		GameMessenger.dude_amount_changed.emit(dudes);
 			
 func yeet(target: Vector2) -> void:
 	if dudes.size() > 0:
@@ -83,6 +85,7 @@ func yeet(target: Vector2) -> void:
 		num_dudes -= 1
 		dude.queue_free()
 		
+		GameMessenger.dude_amount_changed.emit(dudes);
 
 func _on_spawn(spawn_position: Vector2i):
 	await get_tree().process_frame
