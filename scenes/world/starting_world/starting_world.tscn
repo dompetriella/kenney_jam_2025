@@ -13,6 +13,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk8o1"]
 size = Vector2(16.375, 13.75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tga2b"]
+size = Vector2(16.375, 13.75)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b5ml"]
 size = Vector2(16, 23)
 
@@ -21,9 +24,6 @@ size = Vector2(18, 19.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ph4q"]
 size = Vector2(26, 27)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tga2b"]
-size = Vector2(16.375, 13.75)
 
 [node name="StartingWorld" type="Node2D"]
 
@@ -48,6 +48,13 @@ shape = SubResource("RectangleShape2D_gk8o1")
 
 [node name="HouseExit" type="Marker2D" parent="."]
 position = Vector2(1016, 524)
+
+[node name="TransportPanel2" parent="." instance=ExtResource("3_yv8io")]
+new_scene_uid = "uid://bmn6mpia0xg56"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransportPanel2"]
+position = Vector2(1096, 504)
+shape = SubResource("RectangleShape2D_tga2b")
 
 [node name="Interactables" type="Node" parent="."]
 
@@ -79,10 +86,3 @@ pickup_item_data = ExtResource("9_7ph4q")
 [node name="InteractArea" type="CollisionShape2D" parent="Interactables/PickupItem"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_7ph4q")
-
-[node name="TransportPanel2" parent="." instance=ExtResource("3_yv8io")]
-new_scene_uid = "uid://c41xgi6uom5ax"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TransportPanel2"]
-position = Vector2(1096, 504)
-shape = SubResource("RectangleShape2D_tga2b")
