@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://btk8fciybq513"]
+
+[ext_resource type="Script" uid="uid://db06k6sbqffea" path="res://resources/enemy/enemy_data.gd" id="1_eh2tl"]
+
+[resource]
+script = ExtResource("1_eh2tl")
+enemy_name = "ghost"
+enemy_health = 70
+enemy_min_damage = 10
+enemy_max_damage = 20
+enemy_attack_cooldown = 3.0
+enemy_weakness = 0
+metadata/_custom_type_script = "uid://db06k6sbqffea"

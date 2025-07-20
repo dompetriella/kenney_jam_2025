@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://s5ph6lngo5f5"
+path="res://.godot/imported/steve.dialogue-c88777620ee4ecaf2f94499cf675b2e8.tres"
+
+[deps]
+
+source_file="res://dialogue/secondary_location/wizard_tower/steve.dialogue"
+dest_files=["res://.godot/imported/steve.dialogue-c88777620ee4ecaf2f94499cf675b2e8.tres"]
+
+[params]
+
+defaults=true

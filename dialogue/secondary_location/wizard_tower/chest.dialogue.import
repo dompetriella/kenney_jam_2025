@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cww63w3fu8171"
+path="res://.godot/imported/chest.dialogue-f0c9c2ab1aad9702866b66c0d08c9369.tres"
+
+[deps]
+
+source_file="res://dialogue/secondary_location/wizard_tower/chest.dialogue"
+dest_files=["res://.godot/imported/chest.dialogue-f0c9c2ab1aad9702866b66c0d08c9369.tres"]
+
+[params]
+
+defaults=true

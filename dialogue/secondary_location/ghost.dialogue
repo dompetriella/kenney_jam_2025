@@ -1,0 +1,9 @@
+~ start
+Ghost: I'm telling ghost stories
+Ghost: Well, for me they're just stories
+- Listen to story
+	Ghost: Once there was a cowboy who lost his horse
+	Ghost: It was me
+	Ghost: The end
+- Leave => END
+=> END

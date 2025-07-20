@@ -1,0 +1,7 @@
+~ start
+Eel: Hey Wizard, I've got something for you
+- Send boat
+	Eel: Delicious. Thanks, here you go!
+- Leave
+	Eel: Everyone always leaves :(
+=> END

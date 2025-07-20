@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dov2ilygte62g"
+path="res://.godot/imported/cauldron_sign.dialogue-d387467cfb67b6e3e7b4a6ad6eb6dec0.tres"
+
+[deps]
+
+source_file="res://dialogue/secondary_location/wizard_tower/cauldron_sign.dialogue"
+dest_files=["res://.godot/imported/cauldron_sign.dialogue-d387467cfb67b6e3e7b4a6ad6eb6dec0.tres"]
+
+[params]
+
+defaults=true

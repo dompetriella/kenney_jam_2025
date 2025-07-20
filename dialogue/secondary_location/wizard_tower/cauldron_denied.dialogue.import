@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bhbgno57ofej4"
+path="res://.godot/imported/cauldron_denied.dialogue-c39d47f6e7a45f6c1a9bf0ed7ac2dc56.tres"
+
+[deps]
+
+source_file="res://dialogue/secondary_location/wizard_tower/cauldron_denied.dialogue"
+dest_files=["res://.godot/imported/cauldron_denied.dialogue-c39d47f6e7a45f6c1a9bf0ed7ac2dc56.tres"]
+
+[params]
+
+defaults=true

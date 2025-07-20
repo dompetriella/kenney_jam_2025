@@ -81,6 +81,8 @@ func set_is_in_interactable_area(is_in_area: bool):
 
 func set_current_interacting_dialogue(dialogue_node: InteractAreaDialogue):
 	current_dialogue_node = dialogue_node;
+	if(dialogue_node != null && dialogue_node.sfx):
+		AudioMessenger.play_sfx.emit(AudioSource.Source.ENEMY_SFX, dialogue_node.sfx)
 
 func set_current_interacting_item(item: PickupItem):
 	current_pickup_item = item;

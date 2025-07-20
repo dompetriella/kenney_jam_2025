@@ -29,7 +29,7 @@ var target_position: Vector2
 func _ready():
 	navigation_agent = NavigationAgent2D.new()
 	add_child(navigation_agent)
-	navigation_agent.radius = 8.0
+	navigation_agent.radius = 5.0
 	navigation_agent.avoidance_enabled = true
 	navigation_agent.max_speed = SPEED
 	
@@ -56,23 +56,34 @@ func _ready():
 	
 func _on_timer_timeout():
 	
-	var chance_to_spawn: float = 0.10;
+	var chance_to_spawn: float = 0.15;
 	var spin_the_wheel: float = randf();
 	if (spin_the_wheel < chance_to_spawn):
 		var dude_manager: DudeManager = self.get_parent();
 		var packed_dude: PackedScene;
 		var dude_ratio: float
+		if dude_manager.num_dudes < 1:
+			dude_ratio = 0
+		
 		match (self.type):
 			DudeType.Dude.BLUE:
 				packed_dude = load('uid://parh4vv7b2i5');
-				dude_ratio = dude_manager.blue_dudes / dude_manager.num_dudes
+				if dude_manager.num_dudes < 1:
+					dude_ratio = 0
+				else:
+					dude_ratio = dude_manager.blue_dudes / dude_manager.num_dudes
 			DudeType.Dude.GREEN:
 				packed_dude = load('uid://wde1i2q2msdb');
-				
-				dude_ratio = dude_manager.green_dudes / dude_manager.num_dudes
+				if dude_manager.num_dudes < 1:
+					dude_ratio = 0
+				else:
+					dude_ratio = dude_manager.green_dudes / dude_manager.num_dudes
 			DudeType.Dude.YELLOW:
 				packed_dude = load('uid://07yalu1a7pqg');
-				dude_ratio = dude_manager.zap_dudes / dude_manager.num_dudes
+				if dude_manager.num_dudes < 1:
+					dude_ratio = 0
+				else:
+					dude_ratio = dude_manager.zap_dudes / dude_manager.num_dudes
 				
 		if (packed_dude != null && dude_ratio < 0.33):
 			dude_manager.add_dudes(packed_dude, 1, self.target);

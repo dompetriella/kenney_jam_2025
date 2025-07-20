@@ -7,10 +7,14 @@ class_name DudeManager
 @export var zap_dude_scene: PackedScene
 @export var green_dude_scene: PackedScene
 
+const START_BLUE := 5
+const START_YELLOW := 5
+const START_GREEN := 5
+
 var dudes: Array[DudeNode] = []
-var blue_dudes := 5
-var zap_dudes := 5
-var green_dudes := 5
+var blue_dudes := START_BLUE
+var zap_dudes := START_YELLOW
+var green_dudes := START_GREEN
 var num_dudes := blue_dudes + zap_dudes + green_dudes
 var dudes_lost := 0
 
@@ -30,7 +34,20 @@ func _ready():
 		dude.setup(dudes)
 		
 	GameMessenger.dude_amount_changed.emit(self.dudes)
-		
+
+func reset_dudes() -> void:
+	blue_dudes = START_BLUE
+	zap_dudes = START_YELLOW
+	green_dudes = START_GREEN
+	num_dudes = blue_dudes + zap_dudes + green_dudes
+	dudes.all(free_dude)
+	dudes = []
+	self._ready()
+
+func free_dude(dude: DudeNode) -> bool:
+	dude.queue_free()
+	return true
+
 func add_dudes(scene: PackedScene, amount: int, player: Player) -> void:
 	for i in range(amount):
 		var dude := scene.instantiate() as DudeNode

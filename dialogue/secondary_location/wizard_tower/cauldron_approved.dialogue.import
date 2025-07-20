@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d3xj2mh2fnmx4"
+path="res://.godot/imported/cauldron_approved.dialogue-ad58e111cc40ee2fdad54651bedbb321.tres"
+
+[deps]
+
+source_file="res://dialogue/secondary_location/wizard_tower/cauldron_approved.dialogue"
+dest_files=["res://.godot/imported/cauldron_approved.dialogue-ad58e111cc40ee2fdad54651bedbb321.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://biox6wlq8mpxi"
+path="res://.godot/imported/toilet.dialogue-5bbd25d04210f05d3e6d152958b1eb7d.tres"
+
+[deps]
+
+source_file="res://dialogue/secondary_location/toilet.dialogue"
+dest_files=["res://.godot/imported/toilet.dialogue-5bbd25d04210f05d3e6d152958b1eb7d.tres"]
+
+[params]
+
+defaults=true
