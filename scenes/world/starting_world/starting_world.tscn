@@ -78,6 +78,7 @@ position = Vector2(1016, 524)
 
 [node name="TransportPanel2" parent="." instance=ExtResource("3_yv8io")]
 new_scene_uid = "uid://bmn6mpia0xg56"
+required_items = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransportPanel2"]
 position = Vector2(1096, 504)
