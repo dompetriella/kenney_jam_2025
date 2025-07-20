@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bienm2jvdt34q"]
+[gd_scene load_steps=13 format=4 uid="uid://bienm2jvdt34q"]
 
 [ext_resource type="TileSet" uid="uid://dacrp6jb4d73b" path="res://assets/tile_sets/floor_tileset.tres" id="1_8uxbe"]
 [ext_resource type="TileSet" uid="uid://dhivreryfa5uy" path="res://assets/tile_sets/interact_tileset.tres" id="2_yv8io"]
@@ -9,8 +9,6 @@
 [ext_resource type="Resource" uid="uid://dsijlh7ba83ij" path="res://resources/enemy/enemies/goblin_1.tres" id="6_recbf"]
 [ext_resource type="Resource" uid="uid://c7v1lxeff8e1x" path="res://dialogue/starting_area/goblin_2.dialogue" id="6_xiy1x"]
 [ext_resource type="Resource" uid="uid://uiuo6arlcpg1" path="res://resources/enemy/enemies/goblin_2.tres" id="8_sit0m"]
-[ext_resource type="PackedScene" uid="uid://dwc4prn40h14j" path="res://scenes/objects/pickup_item/pickup_item.tscn" id="8_xiy1x"]
-[ext_resource type="Resource" uid="uid://3joxkyyr5kdi" path="res://resources/pickup_item/items/red_gem.tres" id="9_7ph4q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk8o1"]
 size = Vector2(16.375, 13.75)
@@ -20,9 +18,6 @@ size = Vector2(16, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ytvj"]
 size = Vector2(18, 19.125)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ph4q"]
-size = Vector2(26, 27)
 
 [node name="StartingWorld" type="Node2D"]
 
@@ -72,11 +67,3 @@ dialogue = ExtResource("5_7b5ml")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/GardenSignInteract"]
 position = Vector2(616, 586.438)
 shape = SubResource("RectangleShape2D_8ytvj")
-
-[node name="PickupItem" parent="Interactables" instance=ExtResource("8_xiy1x")]
-position = Vector2(864, 435)
-pickup_item_data = ExtResource("9_7ph4q")
-
-[node name="InteractArea" type="CollisionShape2D" parent="Interactables/PickupItem"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_7ph4q")

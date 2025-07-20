@@ -68,6 +68,7 @@ func _on_timer_timeout():
 				dude_ratio = dude_manager.blue_dudes / dude_manager.num_dudes
 			DudeType.Dude.GREEN:
 				packed_dude = load('uid://wde1i2q2msdb');
+				
 				dude_ratio = dude_manager.green_dudes / dude_manager.num_dudes
 			DudeType.Dude.YELLOW:
 				packed_dude = load('uid://07yalu1a7pqg');

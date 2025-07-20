@@ -26,5 +26,6 @@ func _on_body_entered(body: Node2D) -> void:
 				Locator.get_scaffold().scaffold_new_node_tree(new_scene.instantiate(), func(): PlayerMessenger.spawn_player.emit(new_player_position));
 			else:
 				print('No new player position provided for transporter')
+				
 	else:
 		print("No UID for new scene when transporting")

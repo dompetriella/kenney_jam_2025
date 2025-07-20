@@ -8,6 +8,8 @@ var interactable = true;
 
 func _ready() -> void:
 	item_sprite.texture = pickup_item_data.item_texture;
+	if (pickup_item_data in Locator.get_player().inventory):
+		self.queue_free();
 
 
 func _on_body_entered(body: Node2D) -> void:

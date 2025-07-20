@@ -6,7 +6,8 @@
 script = ExtResource("1_g65nn")
 enemy_name = "Goblin Two"
 enemy_health = 40
-enemy_min_damage = 3
+enemy_min_damage = 2
 enemy_max_damage = 4
 enemy_attack_cooldown = 2.0
+enemy_weakness = 0
 metadata/_custom_type_script = "uid://db06k6sbqffea"

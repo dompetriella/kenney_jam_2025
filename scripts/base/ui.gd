@@ -9,19 +9,10 @@ extends Control
 
 func _ready() -> void:
 	GameMessenger.dude_amount_changed.connect(_on_dude_amount_changed.bind());
-	PlayerMessenger.combat_started.connect(_on_combat_started);
-	PlayerMessenger.combat_ended.connect(_on_combat_ended);
 
-func _on_combat_started():
-	combat_label.text = 'FIGHT!';
-
-func _on_combat_ended():
-	combat_label.text = "YOU'RE BEATEN!"
-	await get_tree().create_timer(1).timeout;
-	combat_label.text = '';
 
 func _on_dude_amount_changed(dude_array: Array[DudeNode]):
-	total_dude_amount_label.text = "Total Dudes: " + str(dude_array.size());
+	total_dude_amount_label.text = "Total Dudes: " + str(dude_array.size()) + " / 200";
 	
 	var blue_amount: int = 0;
 	var green_amount: int = 0;

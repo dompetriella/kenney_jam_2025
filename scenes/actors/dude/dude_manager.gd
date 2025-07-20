@@ -48,28 +48,43 @@ func add_dudes(scene: PackedScene, amount: int, player: Player) -> void:
 
 func use_dude(cost: int) -> void:
 	if cost < dudes.size():
-		for i in range(cost):
-			var sacrifice: DudeNode
-			if i < dudes.size():
-				sacrifice = dudes.pop_at(i)
+		# Count how many of each type exist right now
+		var type_counts := {
+			DudeType.Dude.BLUE: 0,
+			DudeType.Dude.GREEN: 0,
+			DudeType.Dude.YELLOW: 0,
+		}
+		
+		for dude in dudes:
+			type_counts[dude.type] += 1
+
+		var removed := 0
+		var i := 0
+		while removed < cost and i < dudes.size():
+			var dude := dudes[i]
+			var type := dude.type
+
+			# Only remove if more than 1 of this type exists
+			if type_counts[type] > 1:
+				type_counts[type] -= 1
+				dudes.remove_at(i)
+				dude.queue_free()
+
+				match type:
+					DudeType.Dude.BLUE:
+						blue_dudes -= 1
+					DudeType.Dude.GREEN:
+						green_dudes -= 1
+					DudeType.Dude.YELLOW:
+						zap_dudes -= 1
+
+				num_dudes -= 1
+				removed += 1
 			else:
-				sacrifice = dudes.pop_front()
-			
-			# update dude count
-			match sacrifice.type:
-				DudeType.Dude.BLUE:
-					blue_dudes -= 1
-				DudeType.Dude.GREEN:
-					green_dudes -= 1
-				DudeType.Dude.YELLOW:
-					zap_dudes -= 1
-			num_dudes -= 1
-			
-			sacrifice.queue_free()
-		
-		dudes_lost += cost
-		
-		GameMessenger.dude_amount_changed.emit(dudes);
+				i += 1  # Skip this dude if we can't safely remove
+
+		dudes_lost += removed
+		GameMessenger.dude_amount_changed.emit(dudes)
 			
 func yeet(target: Vector2) -> void:
 	if dudes.size() > 0:
