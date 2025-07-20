@@ -22,6 +22,7 @@ func _ready():
 	# Wait a frame to ensure Player node is ready
 	await get_tree().process_frame
 	PlayerMessenger.spawn_player.connect(_on_spawn.bind());
+	GameMessenger.reset_game_values.connect(_reset_dudes_state);
 	
 	var player = get_parent() as Player  # Get the Player node
 	
@@ -34,6 +35,10 @@ func _ready():
 		dude.setup(dudes)
 		
 	GameMessenger.dude_amount_changed.emit(self.dudes)
+
+func _reset_dudes_state():
+	reset_dudes();
+	dudes_lost = 0;
 
 func reset_dudes() -> void:
 	blue_dudes = START_BLUE
@@ -49,19 +54,30 @@ func free_dude(dude: DudeNode) -> bool:
 	return true
 
 func add_dudes(scene: PackedScene, amount: int, player: Player) -> void:
-	for i in range(amount):
-		var dude := scene.instantiate() as DudeNode
-		dude.name = "Dude" + str(dudes.size())
-		dude.add_to_group("dudes")
-		dude.target = player
-		dudes.append(dude)
-		add_child(dude)
-		GameMessenger.dude_amount_changed.emit(self.dudes)
-		
-		# Position dude near player initially
-		var angle = (i * TAU) / num_dudes
-		var offset = Vector2(cos(angle), sin(angle)) * 10
-		dude.global_position = player.global_position + offset
+	if (!Locator.get_game().game_over):
+		for i in range(amount):
+			var dude := scene.instantiate() as DudeNode
+			dude.name = "Dude" + str(dudes.size())
+			dude.add_to_group("dudes")
+			dude.target = player
+			dudes.append(dude)
+			add_child(dude)
+			GameMessenger.dude_amount_changed.emit(self.dudes)
+			
+			# Position dude near player initially
+			var angle = (i * TAU) / num_dudes
+			var offset = Vector2(cos(angle), sin(angle)) * 10
+			dude.global_position = player.global_position + offset
+			
+			if (dudes.size() > 200):
+				var death_screen: PackedScene = load("uid://cnxkmaiw2i0cm");
+				Locator.get_scaffold().scaffold_new_node_tree(death_screen.instantiate(), _death);
+
+func _death():
+	Locator.get_game().game_over = true;
+	reset_dudes();
+	GameMessenger.change_camera_focus.emit(CameraType.Focus.MENU);
+	AudioMessenger.play_sfx.emit(AudioSource.Source.WORLD_SFX, load("uid://bxqrdwnwe73v3"));
 
 func use_dude(cost: int) -> void:
 	if cost < dudes.size():

@@ -3,6 +3,8 @@ class_name Game
 
 @onready var menu_camera: Camera2D = %MenuCamera
 
+var game_over: bool = false;
+
 func _ready() -> void:
 	GameMessenger.change_camera_focus.connect(_on_change_camera_focus.bind());
 	menu_camera.make_current();
