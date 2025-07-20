@@ -3,6 +3,7 @@ class_name InteractAreaDialogue
 
 @export var dialogue: DialogueResource;
 @export var enemy_data: EnemyData
+@export var sfx: AudioStream
 
 var talked_to: bool = false;
 

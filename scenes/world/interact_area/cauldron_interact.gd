@@ -2,16 +2,18 @@ extends Area2D
 
 @export var dialogue_success: DialogueResource;
 @export var dialogue_deny: DialogueResource;
+@export var sfx: AudioStream
 
 var success_dialogue: InteractAreaDialogue;
 var deny_dialoge: InteractAreaDialogue;
 
 func _ready() -> void:
 	success_dialogue = InteractAreaDialogue.new()
+	success_dialogue.sfx = sfx
 	success_dialogue.dialogue = dialogue_success
 	deny_dialoge = InteractAreaDialogue.new()
 	deny_dialoge.dialogue = dialogue_deny
-	
+	deny_dialoge.sfx = sfx
 
 func _on_body_entered(body: Node2D) -> void:
 	if (body is Player):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bmn6mpia0xg56"]
+[gd_scene load_steps=22 format=4 uid="uid://bmn6mpia0xg56"]
 
 [ext_resource type="TileSet" uid="uid://dacrp6jb4d73b" path="res://assets/tile_sets/floor_tileset.tres" id="1_1an4f"]
 [ext_resource type="TileSet" uid="uid://dhivreryfa5uy" path="res://assets/tile_sets/interact_tileset.tres" id="2_pkuh6"]
@@ -8,9 +8,12 @@
 [ext_resource type="Resource" uid="uid://dhc486026ysl5" path="res://resources/enemy/enemies/eel.tres" id="6_dbbun"]
 [ext_resource type="Script" uid="uid://db06k6sbqffea" path="res://resources/enemy/enemy_data.gd" id="6_h78a4"]
 [ext_resource type="Resource" uid="uid://b1x7t8b7rycc4" path="res://dialogue/secondary_location/tower_sign.dialogue" id="6_opwuh"]
+[ext_resource type="AudioStream" uid="uid://bi0vo62pub5vt" path="res://assets/audio/sfx/water-splash.mp3" id="7_5upha"]
 [ext_resource type="Resource" uid="uid://biox6wlq8mpxi" path="res://dialogue/secondary_location/toilet.dialogue" id="7_opwuh"]
 [ext_resource type="PackedScene" uid="uid://dty4bfx8uwtnj" path="res://scenes/world/transport_panel/transport_panel.tscn" id="8_r14mr"]
 [ext_resource type="Resource" uid="uid://dsbbt6ny15ekg" path="res://dialogue/secondary_location/ghost.dialogue" id="8_ruv2n"]
+[ext_resource type="Resource" uid="uid://btk8fciybq513" path="res://resources/enemy/enemies/ghost.tres" id="12_w3xnp"]
+[ext_resource type="AudioStream" uid="uid://dggml2vjx1xbc" path="res://assets/audio/sfx/campfire.mp3" id="13_3xinv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56ebk"]
 size = Vector2(14, 25)
@@ -23,12 +26,12 @@ size = Vector2(14, 23)
 
 [sub_resource type="Resource" id="Resource_5upha"]
 script = ExtResource("6_h78a4")
-enemy_name = ""
-enemy_health = 0
-enemy_min_damage = 0
-enemy_max_damage = 0
-enemy_attack_cooldown = 0.0
-enemy_weakness = 0
+enemy_name = "toilet"
+enemy_health = 50
+enemy_min_damage = 40
+enemy_max_damage = 40
+enemy_attack_cooldown = 10.0
+enemy_weakness = 1
 metadata/_custom_type_script = "uid://db06k6sbqffea"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_te6m1"]
@@ -68,6 +71,7 @@ shape = SubResource("RectangleShape2D_56ebk")
 [node name="BoatInteract2" parent="Interactables" instance=ExtResource("3_ruv2n")]
 dialogue = ExtResource("5_v8qse")
 enemy_data = ExtResource("6_dbbun")
+sfx = ExtResource("7_5upha")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/BoatInteract2"]
 position = Vector2(277, 393)
@@ -90,6 +94,8 @@ shape = SubResource("RectangleShape2D_te6m1")
 
 [node name="GhostInteract2" parent="Interactables" instance=ExtResource("3_ruv2n")]
 dialogue = ExtResource("8_ruv2n")
+enemy_data = ExtResource("12_w3xnp")
+sfx = ExtResource("13_3xinv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/GhostInteract2"]
 position = Vector2(841, 280)

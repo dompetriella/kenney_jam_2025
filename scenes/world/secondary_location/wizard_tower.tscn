@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://ctkx2frg1vg8o"]
+[gd_scene load_steps=18 format=4 uid="uid://ctkx2frg1vg8o"]
 
 [ext_resource type="TileSet" uid="uid://dacrp6jb4d73b" path="res://assets/tile_sets/floor_tileset.tres" id="1_cjarq"]
 [ext_resource type="TileSet" uid="uid://dhivreryfa5uy" path="res://assets/tile_sets/interact_tileset.tres" id="2_u2imu"]
@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://dov2ilygte62g" path="res://dialogue/secondary_location/wizard_tower/cauldron_sign.dialogue" id="6_iyq3m"]
 [ext_resource type="Resource" uid="uid://bhbgno57ofej4" path="res://dialogue/secondary_location/wizard_tower/cauldron_denied.dialogue" id="7_leirj"]
 [ext_resource type="Resource" uid="uid://cww63w3fu8171" path="res://dialogue/secondary_location/wizard_tower/chest.dialogue" id="7_ourcl"]
+[ext_resource type="AudioStream" uid="uid://cq0dd4fengd31" path="res://assets/audio/sfx/bubble.ogg" id="8_obfy5"]
+[ext_resource type="AudioStream" uid="uid://b48r5oxotcubq" path="res://assets/audio/sfx/steve.ogg" id="10_obfy5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ourcl"]
 size = Vector2(107, 25)
@@ -50,6 +52,7 @@ shape = SubResource("RectangleShape2D_ourcl")
 script = ExtResource("5_ourcl")
 dialogue_success = ExtResource("6_7cyj4")
 dialogue_deny = ExtResource("7_leirj")
+sfx = ExtResource("8_obfy5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/CauldronInteract"]
 position = Vector2(696, 174)
@@ -57,6 +60,7 @@ shape = SubResource("RectangleShape2D_cjarq")
 
 [node name="SteveInteract2" parent="Interactables" instance=ExtResource("4_iyq3m")]
 dialogue = ExtResource("5_u2imu")
+sfx = ExtResource("10_obfy5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/SteveInteract2"]
 position = Vector2(280.5, 249.5)

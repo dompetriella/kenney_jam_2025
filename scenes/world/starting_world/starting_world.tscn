@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bienm2jvdt34q"]
+[gd_scene load_steps=15 format=4 uid="uid://bienm2jvdt34q"]
 
 [ext_resource type="TileSet" uid="uid://dacrp6jb4d73b" path="res://assets/tile_sets/floor_tileset.tres" id="1_8uxbe"]
 [ext_resource type="TileSet" uid="uid://dhivreryfa5uy" path="res://assets/tile_sets/interact_tileset.tres" id="2_yv8io"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://cuv2l03l6s2oo" path="res://dialogue/starting_area/goblin.dialogue" id="5_n7r6h"]
 [ext_resource type="Resource" uid="uid://dsijlh7ba83ij" path="res://resources/enemy/enemies/goblin_1.tres" id="6_recbf"]
 [ext_resource type="Resource" uid="uid://c7v1lxeff8e1x" path="res://dialogue/starting_area/goblin_2.dialogue" id="6_xiy1x"]
+[ext_resource type="AudioStream" uid="uid://4xkff8wxaunk" path="res://assets/audio/sfx/goblin.mp3" id="7_tga2b"]
 [ext_resource type="Resource" uid="uid://uiuo6arlcpg1" path="res://resources/enemy/enemies/goblin_2.tres" id="8_sit0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk8o1"]
@@ -58,6 +59,7 @@ shape = SubResource("RectangleShape2D_tga2b")
 [node name="Goblin1Interact" parent="Interactables" instance=ExtResource("4_gk8o1")]
 dialogue = ExtResource("5_n7r6h")
 enemy_data = ExtResource("6_recbf")
+sfx = ExtResource("7_tga2b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Goblin1Interact"]
 position = Vector2(840, 395)
@@ -66,6 +68,7 @@ shape = SubResource("RectangleShape2D_7b5ml")
 [node name="Goblin2Interact" parent="Interactables" instance=ExtResource("4_gk8o1")]
 dialogue = ExtResource("6_xiy1x")
 enemy_data = ExtResource("8_sit0m")
+sfx = ExtResource("7_tga2b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Goblin2Interact"]
 position = Vector2(888, 395)
