@@ -56,7 +56,7 @@ func _ready():
 	
 func _on_timer_timeout():
 	
-	var chance_to_spawn: float = 0.15;
+	var chance_to_spawn: float = 0.07;
 	var spin_the_wheel: float = randf();
 	if (spin_the_wheel < chance_to_spawn):
 		var dude_manager: DudeManager = self.get_parent();

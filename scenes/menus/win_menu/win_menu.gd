@@ -14,4 +14,4 @@ func _ready() -> void:
 	
 func _on_play_again_button_pressed() -> void:
 	Locator.get_dude_manager().reset_dudes()
-	Locator.get_scaffold().scaffold_new_node_tree(title_menu.instantiate());
+	Locator.get_scaffold().scaffold_new_node_tree(title_menu.instantiate(), func(): GameMessenger.reset_game_values.emit());
