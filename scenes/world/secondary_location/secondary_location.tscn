@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bmn6mpia0xg56"]
+[gd_scene load_steps=16 format=4 uid="uid://bmn6mpia0xg56"]
 
 [ext_resource type="TileSet" uid="uid://dacrp6jb4d73b" path="res://assets/tile_sets/floor_tileset.tres" id="1_1an4f"]
 [ext_resource type="TileSet" uid="uid://dhivreryfa5uy" path="res://assets/tile_sets/interact_tileset.tres" id="2_pkuh6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://bpg663t0yoqbo" path="res://dialogue/secondary_location/boat.dialogue" id="5_v8qse"]
 [ext_resource type="Resource" uid="uid://b1x7t8b7rycc4" path="res://dialogue/secondary_location/tower_sign.dialogue" id="6_opwuh"]
 [ext_resource type="Resource" uid="uid://biox6wlq8mpxi" path="res://dialogue/secondary_location/toilet.dialogue" id="7_opwuh"]
+[ext_resource type="PackedScene" uid="uid://dty4bfx8uwtnj" path="res://scenes/world/transport_panel/transport_panel.tscn" id="8_r14mr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56ebk"]
 size = Vector2(14, 20)
@@ -25,6 +26,9 @@ size = Vector2(48, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vc32f"]
 size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruv2n"]
+size = Vector2(16.375, 13.75)
 
 [node name="SecondaryLocation" type="Node2D"]
 
@@ -88,3 +92,10 @@ shape = SubResource("RectangleShape2D_mj5wl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransportPanel"]
 position = Vector2(648, 424)
 shape = SubResource("RectangleShape2D_vc32f")
+
+[node name="TransportPanel2" parent="." instance=ExtResource("8_r14mr")]
+new_scene_uid = "uid://ctkx2frg1vg8o"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransportPanel2"]
+position = Vector2(722, 465)
+shape = SubResource("RectangleShape2D_ruv2n")

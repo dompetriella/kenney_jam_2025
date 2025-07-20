@@ -74,7 +74,7 @@ ui_down={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/starting_area/garden_sign_west.dialogue", "res://dialogue/sample.dialogue", "res://dialogue/starting_area/goblin.dialogue", "res://dialogue/starting_area/goblin_2.dialogue", "res://dialogue/starting_area/red_gem.dialogue", "res://dialogue/secondary_location/lake_sign.dialogue", "res://dialogue/secondary_location/boat.dialogue", "res://dialogue/secondary_location/tower_sign.dialogue", "res://dialogue/secondary_location/toilet.dialogue", "res://dialogue/secondary_location/ghost.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/starting_area/garden_sign_west.dialogue", "res://dialogue/sample.dialogue", "res://dialogue/starting_area/goblin.dialogue", "res://dialogue/starting_area/goblin_2.dialogue", "res://dialogue/starting_area/red_gem.dialogue", "res://dialogue/secondary_location/lake_sign.dialogue", "res://dialogue/secondary_location/boat.dialogue", "res://dialogue/secondary_location/tower_sign.dialogue", "res://dialogue/secondary_location/toilet.dialogue", "res://dialogue/secondary_location/ghost.dialogue", "res://dialogue/secondary_location/wizard_tower/steve.dialogue", "res://dialogue/secondary_location/wizard_tower/cauldron_sign.dialogue", "res://dialogue/secondary_location/wizard_tower/chest.dialogue")
 
 [rendering]
 

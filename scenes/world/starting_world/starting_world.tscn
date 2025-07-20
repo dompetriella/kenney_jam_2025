@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bienm2jvdt34q"]
+[gd_scene load_steps=15 format=4 uid="uid://bienm2jvdt34q"]
 
 [ext_resource type="TileSet" uid="uid://dacrp6jb4d73b" path="res://assets/tile_sets/floor_tileset.tres" id="1_8uxbe"]
 [ext_resource type="TileSet" uid="uid://dhivreryfa5uy" path="res://assets/tile_sets/interact_tileset.tres" id="2_yv8io"]
@@ -21,6 +21,9 @@ size = Vector2(18, 19.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ph4q"]
 size = Vector2(26, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tga2b"]
+size = Vector2(16.375, 13.75)
 
 [node name="StartingWorld" type="Node2D"]
 
@@ -76,3 +79,10 @@ pickup_item_data = ExtResource("9_7ph4q")
 [node name="InteractArea" type="CollisionShape2D" parent="Interactables/PickupItem"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_7ph4q")
+
+[node name="TransportPanel2" parent="." instance=ExtResource("3_yv8io")]
+new_scene_uid = "uid://c41xgi6uom5ax"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransportPanel2"]
+position = Vector2(1096, 504)
+shape = SubResource("RectangleShape2D_tga2b")
