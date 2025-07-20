@@ -15,11 +15,17 @@
 [ext_resource type="PackedScene" uid="uid://wde1i2q2msdb" path="res://scenes/actors/dude/green_dude.tscn" id="9_huihk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eji0w"]
-bg_color = Color(0.19451, 0.19451, 0.19451, 1)
+bg_color = Color(0.247875, 0.195048, 0.262397, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
 
 [sub_resource type="Animation" id="Animation_28aoi"]
 resource_name = "Fade"
