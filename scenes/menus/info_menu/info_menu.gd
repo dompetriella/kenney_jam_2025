@@ -8,7 +8,6 @@ func _on_return_button_pressed() -> void:
 
 func _on_play_button_pressed() -> void:
 	Locator.get_dude_manager().reset_dudes()
-	#Locator.get_player().add_child(DudeManager.new())
 	
 	var starting_world_instance = STARTING_WORLD.instantiate();
 	var children: Array[Node] = starting_world_instance.get_children();

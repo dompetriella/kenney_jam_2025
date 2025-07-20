@@ -10,10 +10,12 @@ const WALK_DOWN_ANIMATION: String = 'walk_down';
 @onready var player_camera: Camera2D = %PlayerCamera
 @onready var damage_label: Label = %DamageLabel
 
+var win_menu := load("uid://bjcn7nqeuoyfb")
 var is_traveling_up: bool = false;
 var is_in_interactable_area: bool = false;
 var can_interact: bool = true;
 var in_dialogue: bool = false;
+var is_win: bool = false;
 
 var current_dialogue_node: InteractAreaDialogue;
 var current_pickup_item: PickupItem;
@@ -76,6 +78,9 @@ func _on_dialogue_ended(resource: DialogueResource) -> void:
 		current_pickup_item.queue_free();
 		current_pickup_item = null;
 	
+	if(is_win):
+		Locator.get_scaffold().scaffold_new_node_tree(win_menu.instantiate())
+		
 	in_dialogue = false;	
 	await get_tree().create_timer(0.5).timeout;
 	can_interact = true;

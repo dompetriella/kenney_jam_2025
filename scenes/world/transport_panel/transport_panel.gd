@@ -2,10 +2,14 @@ extends Area2D
 
 @export var new_scene_uid: String;
 @export var specific_spawn_name: String;
+@export var required_items: int;
 
 func _on_body_entered(body: Node2D) -> void:
 	
 	var spawns: Array[Marker2D] = [];
+	
+	if(required_items && Locator.get_player().inventory.size() < required_items):
+		return;
 	
 	if (new_scene_uid != null):
 		if (body is Player):

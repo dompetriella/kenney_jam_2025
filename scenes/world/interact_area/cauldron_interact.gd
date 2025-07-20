@@ -21,7 +21,8 @@ func _on_body_entered(body: Node2D) -> void:
 		print(player.inventory.size())
 		
 		player.set_is_in_interactable_area(true);
-		if player.inventory.size() > 3:
+		if player.inventory.size() > 2:
+			player.is_win = true;
 			player.set_current_interacting_dialogue(success_dialogue);
 		else:
 			player.set_current_interacting_dialogue(deny_dialoge);
