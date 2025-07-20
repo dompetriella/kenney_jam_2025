@@ -15,5 +15,3 @@ func _on_play_button_pressed() -> void:
 			character_spawn = child.global_position;
 	if (character_spawn != null):
 		Locator.get_scaffold().scaffold_new_node_tree(STARTING_WORLD.instantiate(), func(): PlayerMessenger.spawn_player.emit(character_spawn));
-		var audio: AudioStream = load("uid://dfacrdhrl11bj");
-		AudioMessenger.play_music.emit(audio);

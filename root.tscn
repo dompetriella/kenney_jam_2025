@@ -1,14 +1,25 @@
-[gd_scene load_steps=17 format=3 uid="uid://dbbl764uivff2"]
+[gd_scene load_steps=22 format=3 uid="uid://dbbl764uivff2"]
 
 [ext_resource type="Script" uid="uid://te0iudue5tky" path="res://scripts/base/game.gd" id="1_jnlp7"]
 [ext_resource type="Script" uid="uid://dhn6w7armvs76" path="res://scripts/base/scaffold.gd" id="1_pyidc"]
 [ext_resource type="Script" uid="uid://bkvvhf2ncfnhx" path="res://scripts/base/audio.gd" id="1_vvh5c"]
 [ext_resource type="PackedScene" uid="uid://d1aq7ya3d2yrw" path="res://scenes/actors/player/player.tscn" id="2_28aoi"]
+[ext_resource type="Script" uid="uid://c8t8bucjqmnvs" path="res://scripts/base/ui.gd" id="2_eji0w"]
 [ext_resource type="PackedScene" uid="uid://l6xve34c75ym" path="res://scenes/menus/title_menu/title_menu.tscn" id="2_pyidc"]
+[ext_resource type="Texture2D" uid="uid://c1qkfblqr71m3" path="res://assets/sprites/actors/dudes/blue_dude.png" id="2_qw60f"]
+[ext_resource type="Texture2D" uid="uid://k1q2kl0cuomy" path="res://assets/sprites/actors/dudes/green_dude.png" id="3_eji0w"]
+[ext_resource type="Texture2D" uid="uid://cxwuhu6oxv4ja" path="res://assets/sprites/actors/dudes/yellow_dude.png" id="4_qwhpj"]
 [ext_resource type="PackedScene" uid="uid://parh4vv7b2i5" path="res://scenes/actors/dude/dude.tscn" id="6_l8v81"]
 [ext_resource type="Script" uid="uid://befh5oe1ncn6" path="res://scenes/actors/dude/dude_manager.gd" id="6_vyht1"]
 [ext_resource type="PackedScene" uid="uid://07yalu1a7pqg" path="res://scenes/actors/dude/zap_dude.tscn" id="8_bf3um"]
 [ext_resource type="PackedScene" uid="uid://wde1i2q2msdb" path="res://scenes/actors/dude/green_dude.tscn" id="9_huihk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eji0w"]
+bg_color = Color(0.19451, 0.19451, 0.19451, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="Animation" id="Animation_28aoi"]
 resource_name = "Fade"
@@ -89,8 +100,151 @@ vertices = PackedVector2Array(1142, 638, 10.9688, 638, 9.03125, 10.9922, 1142, 1
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 1, 1152, 0, 1152, 648, 1, 648)])
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" groups=["Game"]]
 script = ExtResource("1_jnlp7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_eji0w")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 302.0
+offset_bottom = 130.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_eji0w")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="DudeCounterUI" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel"]
+layout_mode = 2
+offset_right = 248.0
+offset_bottom = 81.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel/DudeCounterUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel/DudeCounterUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel/DudeCounterUI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel/DudeCounterUI/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_qw60f")
+expand_mode = 2
+
+[node name="BlueDudeAmountLabel" type="Label" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel/DudeCounterUI/VBoxContainer/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "16"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel/DudeCounterUI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel/DudeCounterUI/VBoxContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("3_eji0w")
+expand_mode = 2
+
+[node name="GreenDudeAmountLabel" type="Label" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel/DudeCounterUI/VBoxContainer/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "24"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel/DudeCounterUI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel/DudeCounterUI/VBoxContainer/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("4_qwhpj")
+expand_mode = 2
+
+[node name="YellowDudeAmountLabel" type="Label" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel/DudeCounterUI/VBoxContainer/HBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "48"
+
+[node name="TotalDudeAmountLabel" type="Label" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/Panel/DudeCounterUI/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "TOTAL DUDES: 24"
+horizontal_alignment = 1
+
+[node name="InventoryUI" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="CombatLabel" type="Label" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 388.0
+offset_top = 516.0
+offset_right = 753.0
+offset_bottom = 636.0
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Transition" type="Control" parent="CanvasLayer"]
+z_index = 99
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Transition"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="TransitionPlayer" type="AnimationPlayer" parent="CanvasLayer/Transition"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_jnlp7")
+}
+autoplay = "default"
 
 [node name="Audio" type="Node" parent="."]
 script = ExtResource("1_vvh5c")
@@ -110,32 +264,6 @@ unique_name_in_owner = true
 [node name="InterfaceSFX" type="AudioStreamPlayer" parent="Audio"]
 unique_name_in_owner = true
 
-[node name="Transition" type="Control" parent="."]
-z_index = 99
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="Transition"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0)
-
-[node name="TransitionPlayer" type="AnimationPlayer" parent="Transition"]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_jnlp7")
-}
-autoplay = "default"
-
 [node name="Scaffold" type="Node" parent="." groups=["Scaffold"]]
 script = ExtResource("1_pyidc")
 
@@ -143,6 +271,7 @@ script = ExtResource("1_pyidc")
 
 [node name="Player" parent="." instance=ExtResource("2_28aoi")]
 z_index = 99
+position = Vector2(581, 123)
 
 [node name="DudeManager" type="Node" parent="Player" groups=["dudes"]]
 script = ExtResource("6_vyht1")
@@ -155,4 +284,5 @@ unique_name_in_owner = true
 position = Vector2(577, 323)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_l8v81")

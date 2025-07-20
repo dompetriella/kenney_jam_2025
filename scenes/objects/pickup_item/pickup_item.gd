@@ -8,11 +8,13 @@ var interactable = true;
 
 func _ready() -> void:
 	item_sprite.texture = pickup_item_data.item_texture;
+	if (pickup_item_data in Locator.get_player().inventory):
+		self.queue_free();
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if (body is Player):
-		print(pickup_item_data.item_name);
+		print("Entering: " + pickup_item_data.item_name);
 		Locator.get_player().set_is_in_interactable_area(true);
 		Locator.get_player().set_current_interacting_item(self);
 
