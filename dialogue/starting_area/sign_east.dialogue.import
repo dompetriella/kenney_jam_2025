@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://xdhhguiwxp4n"
+path="res://.godot/imported/sign_east.dialogue-6b0357451c33732a852dcfd6798fb2c6.tres"
+
+[deps]
+
+source_file="res://dialogue/starting_area/sign_east.dialogue"
+dest_files=["res://.godot/imported/sign_east.dialogue-6b0357451c33732a852dcfd6798fb2c6.tres"]
+
+[params]
+
+defaults=true

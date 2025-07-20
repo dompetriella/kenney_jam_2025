@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bienm2jvdt34q"]
+[gd_scene load_steps=26 format=4 uid="uid://bienm2jvdt34q"]
 
 [ext_resource type="TileSet" uid="uid://dacrp6jb4d73b" path="res://assets/tile_sets/floor_tileset.tres" id="1_8uxbe"]
 [ext_resource type="TileSet" uid="uid://dhivreryfa5uy" path="res://assets/tile_sets/interact_tileset.tres" id="2_yv8io"]
@@ -10,6 +10,15 @@
 [ext_resource type="Resource" uid="uid://c7v1lxeff8e1x" path="res://dialogue/starting_area/goblin_2.dialogue" id="6_xiy1x"]
 [ext_resource type="AudioStream" uid="uid://4xkff8wxaunk" path="res://assets/audio/sfx/goblin.mp3" id="7_tga2b"]
 [ext_resource type="Resource" uid="uid://uiuo6arlcpg1" path="res://resources/enemy/enemies/goblin_2.tres" id="8_sit0m"]
+[ext_resource type="Resource" uid="uid://b6x35pdd5gtdc" path="res://dialogue/starting_area/tutorial1.dialogue" id="11_dhi55"]
+[ext_resource type="Script" uid="uid://db06k6sbqffea" path="res://resources/enemy/enemy_data.gd" id="12_7hy5u"]
+[ext_resource type="AudioStream" uid="uid://cjv26khofqb1o" path="res://assets/audio/sfx/interface_sfx.ogg" id="13_0p3ey"]
+[ext_resource type="Resource" uid="uid://dr8w06huqrqyn" path="res://dialogue/starting_area/tutorial4.dialogue" id="14_lc0c0"]
+[ext_resource type="Resource" uid="uid://1x1pjkcqv2mj" path="res://dialogue/starting_area/tutorial2.dialogue" id="15_cirdc"]
+[ext_resource type="Resource" uid="uid://b6yoq41d4ebfn" path="res://dialogue/starting_area/tutorial3.dialogue" id="16_mo8by"]
+[ext_resource type="Resource" uid="uid://btvvdygwrsg7g" path="res://dialogue/starting_area/garden_south_east.dialogue" id="17_lc0c0"]
+[ext_resource type="Resource" uid="uid://bh7svntgiuwdg" path="res://dialogue/starting_area/garden_north_east.dialogue" id="18_cirdc"]
+[ext_resource type="Resource" uid="uid://xdhhguiwxp4n" path="res://dialogue/starting_area/sign_east.dialogue" id="19_mo8by"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk8o1"]
 size = Vector2(16.375, 13.75)
@@ -23,6 +32,26 @@ size = Vector2(16, 23)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ytvj"]
 size = Vector2(18, 19.125)
 
+[sub_resource type="Resource" id="Resource_pqghr"]
+script = ExtResource("12_7hy5u")
+enemy_name = ""
+enemy_health = 0
+enemy_min_damage = 2
+enemy_max_damage = 6
+enemy_attack_cooldown = 0.0
+enemy_weakness = 0
+metadata/_custom_type_script = "uid://db06k6sbqffea"
+
+[sub_resource type="Resource" id="Resource_lc0c0"]
+script = ExtResource("12_7hy5u")
+enemy_name = ""
+enemy_health = 0
+enemy_min_damage = 1
+enemy_max_damage = 1
+enemy_attack_cooldown = 0.0
+enemy_weakness = 0
+metadata/_custom_type_script = "uid://db06k6sbqffea"
+
 [node name="StartingWorld" type="Node2D"]
 
 [node name="FloorLayer" type="TileMapLayer" parent="."]
@@ -31,7 +60,7 @@ tile_map_data = PackedByteArray("AAAJAAcAAQABAAEAAAAJAAgAAQABAAEAAAAJAAkAAQABAAE
 tile_set = ExtResource("1_8uxbe")
 
 [node name="InteractLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAA0ABgAAAAZAAIAAAA3ABgAAAAZAAIAAAA+AB0AAAAKAA8AAAA+AB4AAAAKABAAAAA+AB8AAAAKABAAAAA/AB0AAAALAA8AAAA/AB4AAAALABAAAAA/AB8AAAADAAkAAABAAB0AAAALAA8AAABAAB8AAAALABAAAABBAB0AAAAMAA8AAABBAB4AAAAMABAAAABBAB8AAAALABAAAABAAB4AAAALABAAAABDAB8AAAAMAAYAAABEAB8AAAABAAkAAABFAB8AAAAMAAYAAAA=")
+tile_map_data = PackedByteArray("AAA0ABgAAAAZAAIAAAA3ABgAAAAZAAIAAAA+AB0AAAAKAA8AAAA+AB4AAAAKABAAAAA+AB8AAAAKABAAAAA/AB0AAAALAA8AAAA/AB4AAAALABAAAAA/AB8AAAADAAkAAABAAB0AAAALAA8AAABAAB8AAAALABAAAABBAB0AAAAMAA8AAABBAB4AAAAMABAAAABBAB8AAAALABAAAABAAB4AAAALABAAAABDAB8AAAAMAAYAAABEAB8AAAABAAkAAABFAB8AAAAMAAYAAAAgABcAAAAQAAcAAAAjABkAAAAQAAcAAAAhABoAAAAQAAcAAAA8ABIAAAAQAAcAAAApABUAAAAQAAcAAAA=")
 tile_set = ExtResource("2_yv8io")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
@@ -79,4 +108,59 @@ dialogue = ExtResource("5_7b5ml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/GardenSignInteract"]
 position = Vector2(616, 586.438)
+shape = SubResource("RectangleShape2D_8ytvj")
+
+[node name="Tutorial1" parent="Interactables" instance=ExtResource("4_gk8o1")]
+dialogue = ExtResource("11_dhi55")
+enemy_data = SubResource("Resource_pqghr")
+sfx = ExtResource("13_0p3ey")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactables/Tutorial1"]
+position = Vector2(520, 379)
+shape = SubResource("RectangleShape2D_8ytvj")
+
+[node name="Tutorial4" parent="Interactables" instance=ExtResource("4_gk8o1")]
+dialogue = ExtResource("14_lc0c0")
+sfx = ExtResource("13_0p3ey")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactables/Tutorial4"]
+position = Vector2(664, 346)
+shape = SubResource("RectangleShape2D_8ytvj")
+
+[node name="Tutorial2" parent="Interactables" instance=ExtResource("4_gk8o1")]
+dialogue = ExtResource("15_cirdc")
+sfx = ExtResource("13_0p3ey")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactables/Tutorial2"]
+position = Vector2(536, 427)
+shape = SubResource("RectangleShape2D_8ytvj")
+
+[node name="Tutorial3" parent="Interactables" instance=ExtResource("4_gk8o1")]
+dialogue = ExtResource("16_mo8by")
+sfx = ExtResource("13_0p3ey")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactables/Tutorial3"]
+position = Vector2(568, 409)
+shape = SubResource("RectangleShape2D_8ytvj")
+
+[node name="GardenSouthEast" parent="Interactables" instance=ExtResource("4_gk8o1")]
+dialogue = ExtResource("17_lc0c0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactables/GardenSouthEast"]
+position = Vector2(1160, 731)
+shape = SubResource("RectangleShape2D_8ytvj")
+
+[node name="GardenNorthEast" parent="Interactables" instance=ExtResource("4_gk8o1")]
+dialogue = ExtResource("18_cirdc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactables/GardenNorthEast"]
+position = Vector2(1128, 378)
+shape = SubResource("RectangleShape2D_8ytvj")
+
+[node name="SignEast" parent="Interactables" instance=ExtResource("4_gk8o1")]
+dialogue = ExtResource("19_mo8by")
+enemy_data = SubResource("Resource_lc0c0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactables/SignEast"]
+position = Vector2(968, 299)
 shape = SubResource("RectangleShape2D_8ytvj")

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bh7svntgiuwdg"
+path="res://.godot/imported/garden_north_east.dialogue-50c3081178b6f23edf4f3c0a3bb00922.tres"
+
+[deps]
+
+source_file="res://dialogue/starting_area/garden_north_east.dialogue"
+dest_files=["res://.godot/imported/garden_north_east.dialogue-50c3081178b6f23edf4f3c0a3bb00922.tres"]
+
+[params]
+
+defaults=true

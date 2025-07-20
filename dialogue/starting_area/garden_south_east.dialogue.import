@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://btvvdygwrsg7g"
+path="res://.godot/imported/garden_south_east.dialogue-1c95ec92abfad68a372ac5d7c0c27287.tres"
+
+[deps]
+
+source_file="res://dialogue/starting_area/garden_south_east.dialogue"
+dest_files=["res://.godot/imported/garden_south_east.dialogue-1c95ec92abfad68a372ac5d7c0c27287.tres"]
+
+[params]
+
+defaults=true
