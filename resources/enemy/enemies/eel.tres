@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://dhc486026ysl5"]
+
+[ext_resource type="Script" uid="uid://db06k6sbqffea" path="res://resources/enemy/enemy_data.gd" id="1_70cmh"]
+
+[resource]
+script = ExtResource("1_70cmh")
+enemy_name = ""
+enemy_health = 50
+enemy_min_damage = 5
+enemy_max_damage = 10
+enemy_attack_cooldown = 5.0
+enemy_weakness = 2
+metadata/_custom_type_script = "uid://db06k6sbqffea"

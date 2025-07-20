@@ -3,6 +3,15 @@ extends Area2D
 @export var dialogue_success: DialogueResource;
 @export var dialogue_deny: DialogueResource;
 
+var success_dialogue: InteractAreaDialogue;
+var deny_dialoge: InteractAreaDialogue;
+
+func _ready() -> void:
+	success_dialogue = InteractAreaDialogue.new()
+	success_dialogue.dialogue = dialogue_success
+	deny_dialoge = InteractAreaDialogue.new()
+	deny_dialoge.dialogue = dialogue_deny
+	
 
 func _on_body_entered(body: Node2D) -> void:
 	if (body is Player):
@@ -10,9 +19,9 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		player.set_is_in_interactable_area(true);
 		if player.inventory.size() > 3:
-			player.set_current_interacting_dialogue(dialogue_success);
+			player.set_current_interacting_dialogue(success_dialogue);
 		else:
-			player.set_current_interacting_dialogue(dialogue_deny);
+			player.set_current_interacting_dialogue(deny_dialoge);
 
 
 

@@ -29,7 +29,7 @@ var target_position: Vector2
 func _ready():
 	navigation_agent = NavigationAgent2D.new()
 	add_child(navigation_agent)
-	navigation_agent.radius = 8.0
+	navigation_agent.radius = 5.0
 	navigation_agent.avoidance_enabled = true
 	navigation_agent.max_speed = SPEED
 	
@@ -56,7 +56,7 @@ func _ready():
 	
 func _on_timer_timeout():
 	
-	var chance_to_spawn: float = 0.10;
+	var chance_to_spawn: float = 0.15;
 	var spin_the_wheel: float = randf();
 	if (spin_the_wheel < chance_to_spawn):
 		var dude_manager: DudeManager = self.get_parent();
